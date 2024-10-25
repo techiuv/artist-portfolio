@@ -1,0 +1,53 @@
+{
+  "artworks": [
+    {
+      "title": "Fallen in Love",
+      "description": "Fallen in Love is a stunning portrayal of a fleeting moment where emotions rise to the surface without words. The eye becomes the storyteller, capturing the intensity of love so deep it dilates the very essence of one's being. The dark, expansive pupil is more than just a biological response; reflecting the sudden rush of emotion when sight meets the beloved.",
+      "image": "assets/img/artworks/Yuvraj_Fallen_In_Love_11.7inch×16.5inch_charcoal_2024.jpg",
+      "medium": "Charcoal",
+      "year": 2024
+    },
+    {
+      "title": "Ephemeral Life",
+      "description": "This artwork depicts a realistic hand sculpted in charcoal, seemingly deteriorating as the top part of the fingers disintegrates into small, textured fragments. The concept highlights the inevitable truth that every birth leads to a deadline, capturing the fragile balance between existence and oblivion.",
+      "image": "assets/img/artworks/Yuvraj_The_End_11.7inch×16.5inch_charcoal_2024.jpg",
+      "medium": "Charcoal",
+      "year": 2024
+    },
+    {
+      "title": "Growth",
+      "description": "This artwork shows a tree growing from a tightly clenched stack of rugged, textured hands, symbolizing life's obstacles such as struggles and resistance. Despite these challenges, the tree emerges with resilience, its roots piercing through the fingers, representing the unstoppable spirit of growth.",
+      "image": "assets/img/artworks/1000014388.jpg",
+      "medium": "Graphite",
+      "year": 2024
+    }
+  ],
+  "displayArt": [
+    {
+      "title": "Artwork One",
+      "description": "A stunning piece depicting abstract forms.",
+      "src": "assets/img/artworks/1000011181.jpg"
+    },
+    {
+      "title": "Artwork Two",
+      "description": "An expressive portrayal of human emotions.",
+      "src": "assets/img/artworks/1000014534.jpg"
+    },
+    {
+      "title": "Artwork Three",
+      "description": "A modern landscape capturing nature's beauty.",
+      "src": "assets/img/artworks/1000014535.jpg"
+    },
+    {
+      "title": "Artwork Four",
+      "description": "A colorful representation of urban life.",
+      "src": "assets/img/artworks/1000011181.jpg"
+    },
+    {
+      "title": "Artwork Five",
+      "description": "A captivating abstract work in shades of blue.",
+      "src": "assets/img/artworks/1000014536.jpg"
+    }
+    
+  ]
+}
