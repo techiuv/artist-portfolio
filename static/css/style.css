@@ -1,0 +1,543 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+:root{
+    --primary-color: ;
+    --tertiary-color:#c4c4c4 ;
+    --bg: #111111;
+    --box-bg:#232323 ;
+    
+    --offcanvas-bg: #222222;   
+    
+    --font-bold: 500;
+    --font-medium: 400;
+    --font-light: 300;
+    
+    
+}
+
+@font-face  {
+    font-family: Helvetica;
+    src: url('assets/fonts/HelveticaNeueBlack.otf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;    
+    font-family: Helvetica, sans-serif;
+
+}
+
+html{
+    overscroll-behavior : none;
+}
+
+body{
+    background: var(--bg);   
+    height: 100%;
+    width: 100%;
+    
+}
+
+::webkit-scrollbar{
+    display: none;
+}
+
+
+section{
+    width: 100vw;
+    position: relative;
+    padding-top: 7vh;
+}
+
+p{
+    color: var(--tertiary-color);
+    font-weight: var(--font-light);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+
+/* cursor effect */
+
+#cursor {
+    height: 20px;
+    width: 20px;
+    background:var(--tertiary-color);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%,-50%);
+
+    
+}
+
+/* header */
+.hamburger-menu {
+    border: none;
+    color:  white;
+    
+}
+
+.hamburger-menu:hover,
+.navbar-toggler:focus,
+.btn-close:hover,
+.btn-close:focus {
+    box-shadow: none;
+}
+
+
+nav {
+    min-height: 5vh;
+    position: relative;
+    background: var(--bg);
+    align-items: center;
+    transition: box-shadow 0.3s;
+    
+}
+
+
+.offcanvas {
+    background: var(--offcanvas-bg);
+}
+
+
+.offcanvas-body div ul li{list-style: none;}
+
+
+.offcanvas-body div ul li a  {
+    color: var(--tertiary-color );
+    font-weight:  var(--font-light);
+    cursor: pointer;
+    font-size:  1.2rem;
+    transition:  .2s ease;
+    text-decoration:  none;     
+    
+    
+}
+
+.offcanvas-body div ul li a i{color: var(--tertiary-color);}
+
+
+
+.offcanvas-body div div:first-child ul li a{
+    font-size: 1.3rem;
+}
+
+
+.offcanvas-body ul li a:hover{
+    color: white;
+}
+
+.offcanvas-body ul li a:hover i {
+    color: white;
+}
+
+
+.offcanvas-body div ul li{
+    margin-top: 1.2rem;
+}
+
+.offcanvas-body div ul li a i{
+    margin-right: 1.5%;
+}
+
+    
+
+#offcanvasRight{
+    width: 400px;
+}
+
+.line{
+    height:  1px;
+    width:  90%;
+    margin: auto;
+    background:  #2e2e2e;
+    border-radius: 50%;
+    content: "";
+    display: flex;
+    position: relative;
+}
+
+
+
+.home-content h1 span{
+    overflow:  hidden;
+    line-height: 110%;
+    transform: translateY(100%);
+    opacity: 0;
+    
+}
+
+.header h1::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #e5e3dc;
+    overflow: hidden;
+    width: 0;
+    transition: width 2s cubic-bezier(0.6, 0, 0.4, 1);
+    animation: fill 2s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+    animation-delay: 0.25s;
+}
+
+@keyframes fill {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+
+.header-wrapper::after {
+    content: "";
+    position: fixed;
+    top: 120px;
+    left: -20px;
+    width: 110px;
+    height: 120px;
+    background: #ababab; /* Corrected color code */
+}
+
+/* Hero Section */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-wrapper {
+  padding: 6.4rem;
+}
+
+.hero-paragraph {
+  padding-top: 50vh;
+  padding-left: 20rem ;
+  padding-bottom: 5rem; 
+}
+
+.hero-paragraph-text,
+.hero-paragraph-text span {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: var(--font-medium);
+}
+
+
+
+.hero-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  scale: 1;
+}
+
+/* portfolio  section */
+.text-container {
+    overflow: hidden;
+}
+
+.reveal-text {
+    font-size: 8rem;
+    line-height: calc(100% - 5px);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    color: #fff;   
+    text-align: center;
+}
+
+
+.heading {
+    width: 90%;
+    margin: auto;
+    padding: 1px 0 0 0;
+}
+
+
+#artwork-container{
+    width: 90%;
+    margin-top: 3rem;
+}
+
+.artwork-tittle{
+    padding: 1rem 0 .5rem 0;
+    font-size: 4rem;
+}
+
+.artwork{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    width: 100%;   
+    margin: 3% 0 ;     
+    overflow: hidden;
+}
+
+.featured-artworks{
+    width: 60%;
+}
+
+
+.artwork:nth-child(2) .featured-artworks{
+    margin-left: 30%;
+}
+
+.artwork:nth-child(2) {
+    text-align:  right;
+}
+
+
+/* Swiper styles */
+.swiper-container {
+    width: 90%;
+    overflow: hidden;
+    height: 400px;
+    margin: auto;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+    width: 32%;
+    
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    
+}    
+
+/* Swiper coverflow effect */
+.swiper-slide-active {
+    transform: scale(1.1);
+}
+
+
+
+
+/* skeleton loading to artworks */
+
+.post-thumbnail {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background: var(--offcanvas-bg);
+		aspect-ratio: 3/4;
+		
+	}
+
+
+.shimmer {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(
+			-90deg,
+			transparent 8%,
+			rgb(65 65 65 / 28%) 18%,
+			transparent 33%
+		);
+		background-size: 200%;
+		background-attachment: fixed;
+		animation: placeHolderShimmer 2s ease-in-out infinite;
+	}
+}
+
+@keyframes placeHolderShimmer {
+	0% {
+		background-position: 100% 0;
+	}
+
+	100% {
+		background-position: -100% 0;
+	}
+}
+
+form{
+    width: 70%;
+    margin: auto;
+}
+
+input,
+textarea {
+    background:  transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    padding: 1% 2%;
+    cursor: pointer;    
+    min-height: 5vh;
+    margin: 5% auto;
+    width: 100%;
+    font-size:  2rem;
+    font-weight:  var(--font-meduim);
+    outline:  none;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color: var(--tertiary-color);
+}
+
+button{
+    border: 1px solid white;
+    width: auto;
+    height: auto;
+    margin: auto;
+    padding: 2% 4%;
+    border-radius: 50px;
+    margin-top: 2rem;
+    background:  transparent;
+}
+
+.toast-header{
+    border-bottom: 1px solid var(--tertiary-color);
+}
+
+.toast,
+.toast-header {
+    background: var(--offcanvas-bg);
+    backface-visibility: 10%;
+}
+
+small{
+    color: var(--tertiary-color);
+}
+
+.me-auto {
+    color:  white;
+}
+
+.toast-body{
+    font-weight: var(--font-light);
+}
+.btn-close{
+    border: none;
+}
+
+
+/* Responsive */
+
+@media screen and (max-width:1024px){
+    .hero-paragraph{
+        padding-left: 5rem;
+    }
+    
+    .hero-paragraph-text,
+    .hero-paragraph-text span{
+        font-size: 2rem;
+    }
+    
+    .hero-wrapper{
+        padding: 3rem;
+    }
+    
+    .hero-bg-img{
+        height: 110%;
+    }
+    
+    
+}
+
+@media screen and (max-width:768px){
+    p{
+        font-size: 1rem;
+    }
+    
+    #cursor {
+        display: none;
+    }
+    .offcanvas-body div ul li a,
+    .cards_el-p{
+        font-size: 1rem;
+    }
+    
+    .offcanvas-body div div:first-child ul li a,
+    input,
+    textarea {
+        font-size: 1.1rem;
+    }    
+    
+    #offcanvasRight{
+        width: 340px;
+    }
+    
+    .reveal-text,
+    .artwork-tittle{
+        font-size: 3rem;
+    }
+    .hero-paragraph {
+        padding-left:  0;
+    }
+    .hero-paragraph-text,
+    .hero-paragraph-text span{
+        font-size: 1.8rem;
+    }
+    
+    .hero-paragraph{
+        padding-left: 0;
+        padding-top: 70vh;
+    }
+     
+     
+    .hero-wrapper{
+        padding: 1rem;
+    }
+    
+    #artwork-container{
+        width: 90%;
+    }
+    
+    .artwork {
+        flex-direction: column;
+    }
+    
+    .featured-artworks{width: 100%;}
+    
+    .artwork:nth-child(2) .featured-artworks{
+        margin-left: 0;
+    }
+    .artwork:nth-child(2) {
+        text-align:  left;
+    }
+    
+    input,
+    textarea {
+        font-size: 1.1rem;
+    }    
+    
+    form {
+        width: 90%;
+    }
+  }
