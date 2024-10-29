@@ -48,9 +48,9 @@
   
     
     <header>
-        <nav class=" w-100 d-flex justify-content-between py-1 fixed-top">
+        <nav class=" w-100 d-flex justify-content-between py-1 py-md-0 fixed-top">
             
-            <a href="/" class="text-decoration-none cursor-pointer mx-3 mx-md-5  fs-3 fs-md-1" style="color:white" onclick="window.location.reload();">Artfolio</a>
+            <a href="/" class="text-decoration-none cursor-pointer mx-3 mx-md-5 my-0 fs-3 fs-md-1" style="color:white" onclick="window.location.reload();">Artfolio</a>
             <button class="bg-transparent hamburger-menu mx-3 mx-md-5 my-0 fs-3 fs-md-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
@@ -126,47 +126,52 @@
    
     <main>
         
-        <section>
+        <section id="home">
             <div class="" id="">
-                
+                <div>
+                    <h3></h3>
+                </div>
+                <div>
+                    <img src="assets/img/960c1ab8-752d-4d19-8a19-7a3d10c459d7.jpg" alt="" class="img-fluid">
+                </div>
+                <div>
+                    <h3></h3>
+                </div>
                
             </div>
         </section>
         
-        
-        <section class="hero" id="home">
-            <div id="cursor"></div>
-            <div class="hero-wrapper">
-                <div class="hero-paragraph">
-                    <p class="hero-paragraph-text">
-                        I am a professional artist based in bihar with an expertise of <span id="exp"></span> specializing in a variety of mediums, including charcoal, oil, acrylic, water colour and pastels. My artistic journey, shaped by self learning that enabled me to develop a unique and expressive style. Each piece I create is crafted with passion, focusing on story telling and evoking emotions in my audience. 
+        <section id="about">
+            <p class="hero-paragraph-text">
+                I am a professional artist based in bihar with an expertise of <span id="exp"></span> specializing in a variety of mediums, including charcoal, oil, acrylic, water colour and pastels. My artistic journey, shaped by self learning that enabled me to develop a unique and expressive style. Each piece I create is crafted with passion, focusing on story telling and evoking emotions in my audience. 
+            </p>
+        </section>
+                
+        <section id="portfolio">
+            <div class="text-container heading">
+                <h3 class="reveal-text">Featured</h3>
+            </div>
+            <div class="text-container heading">
+                <h3 class="reveal-text">Artworks</h3>
+            </div>
+            
+            <div id="artwork-container" class="mx-auto">
+                <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                    <button type="button" class="btn-close btn-close-white position-absolute" data-bs-dismiss="modal" aria-label="Close" id="modal-close-btn"></button>  
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content bg-transparent position-relative border-0">    
+                            <div class="modal-body">
+                                <img src="" id="modalImage" class="img-fluid" alt="Artwork">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-bg">
-                <img src="assets/img/960c1ab8-752d-4d19-8a19-7a3d10c459d7.jpg" alt="" class="hero-bg-img img-fluid">
-            </div>
-        </section>
-        
-        <section id="portfolio">
-            
-            <div class="text-container heading">
-                <h3 class=" reveal-text">Featured </h3>            
-            </div>
-            <div class="text-container heading">
-                <h3 class=" reveal-text"> Artworks</h3>            
-            </div>
-            
-            <div id="artwork-container" class="mx-auto"></div>
-            
             <div class="swiper-container">
                 <div class="swiper-wrapper" id="artworks-wrapper"></div>
             </div>
-            
-            
-         
-                  
         </section>
-        
+
         <section id="contact">
             <div class="text-container heading">
                 <h3 class="reveal-text">get in </h3>            
@@ -215,12 +220,13 @@
                      <!--  <img src="..." class="rounded me-2" alt="..."> -->
                       <strong class="me-auto">Artfolio</strong>
                       <small>just now</small>                    
-                    </div>
-                <div class="toast-body">
                       
-                </div>
-              </div>
-              </div>
+                    </div>
+                   <div class="toast-body">
+                      
+                  </div>
+               </div>
+             </div>
                   
         </section>
     </main>
@@ -240,14 +246,15 @@
     
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript">
    (function() {
       emailjs.init(""); // Initialize EmailJS with your user ID
    })();
-</script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
     <script src="static/js/script.js"></script>
     
 </body>
 </html>
+
