@@ -54,33 +54,29 @@ function cursorEffect() {
     window.addEventListener("resize", applyCursorEffect);
 }
 
-cursorEffect();
+//cursorEffect();
 
 
-function addNavBarShadow() {
+function initializeNavigation() {
   const navbar = document.querySelector('nav'); 
+
+  // Add shadow to navbar on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      navbar.style.boxShadow ='0 4px 2px -2px #0e0e0e'
+      navbar.style.boxShadow = '0 4px 2px -2px #0e0e0e';
     } else {
-      navbar.style.boxShadow =''
+      navbar.style.boxShadow = '';
     }
   });
-}
 
-
-document.addEventListener('DOMContentLoaded', addNavBarShadow);
-
-
-function setupOffcanvasNavigation() {
+  // Set up off-canvas navigation
   document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', function(event) {
-      //event.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
       
-      var offcanvasElement = document.getElementById('offcanvasRight');
-      var offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
+      const offcanvasElement = document.getElementById('offcanvasRight');
+      const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
 
       if (offcanvasInstance) {
         offcanvasInstance.hide();
@@ -101,7 +97,8 @@ function setupOffcanvasNavigation() {
   });
 }
 
-setupOffcanvasNavigation();
+document.addEventListener('DOMContentLoaded', initializeNavigation);
+
 
 
 function homePageAnimation() {
@@ -118,7 +115,6 @@ function homePageAnimation() {
       target: '.hero-paragraph-text',
       by: 'words',
     }),
-    image: document.querySelector('.hero-bg'),
   };
 
   const initLenis = () => {
@@ -136,13 +132,12 @@ function homePageAnimation() {
   };
 
   const initScroll = () => {
-    gsap.set(selector.image, { autoAlpha: 1, scale: 1, yPercent: 0 });
     gsap.set('.word', { autoAlpha: 0.4 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
+        trigger: '#about',
+        start: 'top center',
         end: 'bottom bottom',
         scrub: 1,
       },
@@ -153,50 +148,32 @@ function homePageAnimation() {
       duration: 2,
       autoAlpha: 1,
       stagger: 1,
-    })
-      // Animate the hero background image
-      .to(
-        selector.image,
-        {
-          duration: 20,
-          scale: 0.95,
-          autoAlpha: 0,
-          yPercent: -5,
-        },
-        0 // This makes the image animation run in parallel with the words
-      );
+    });
   };
 
- 
   window.addEventListener('DOMContentLoaded', initLenis);
 }
-
 
 homePageAnimation();
 
 
-const copyrightMsg = () => {
-    document.getElementById("year").innerHTML = "&copy" + new Date().getFullYear() + ". All rights reserved. ";
-}
-
-copyrightMsg();
-
 function animateHeading() {
   const revealTexts = document.querySelectorAll(".reveal-text");
-  
+
   revealTexts.forEach(text => {
-    const section = text.closest("section").id;
+    const section = text.closest("section")?.id;
     
-  //  if (!section || !section.id) return;
+    if (!section) return;
     
     gsap.from(text, {
-      y: "110%",
-      opacity: 0,
-      duration: 0.5,
+      y: 100,
+      duration: 1.2,
+      stagger: .3,
       scrollTrigger: {
         trigger: `#${section}`,
-        start: "top 90%",
-        scrub: .5
+        start: "top 90%",        
+        end: "bottom center",
+        toggleActions: "play none none reset", 
       }
     });
   });
@@ -205,7 +182,8 @@ function animateHeading() {
 animateHeading();
 
 
-async function loadArtworks() {
+
+async function loadAndDisplayArtworks() {
   try {
     const response = await fetch('assets/data/artworks.json');
     
@@ -214,6 +192,8 @@ async function loadArtworks() {
     }
 
     const data = await response.json();
+    
+    // Load main artworks gallery
     const artworks = data.artworks;
     let artworkContainer = document.getElementById('artwork-container');
 
@@ -228,7 +208,7 @@ async function loadArtworks() {
                 <path d="M7 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m4.225 4.053a.5.5 0 0 0-.577.093l-3.71 4.71-2.66-2.772a.5.5 0 0 0-.63.062L.002 13v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4.5z"/>
               </svg>
           </span>
-          <img src="${artwork.image}" class="img-fluid featured-artworks" alt="${artwork.title}" style="display: none;">  
+          <img src="${artwork.image}" class="img-fluid featured-artworks" alt="${artwork.title}" data-bs-toggle="modal" data-bs-target="#imageModal" style="display: none;">  
         </div>   
         <figcaption class="px-0 px-md-3">    
             <div class="text-container">
@@ -245,6 +225,11 @@ async function loadArtworks() {
       const img = artworkElement.querySelector('.featured-artworks');
       const shimmer = artworkElement.querySelector('.post-thumbnail.shimmer');
 
+      // Event listener to set the modal image source when clicked
+      img.addEventListener('click', () => {
+        document.getElementById('modalImage').src = artwork.image;
+      });
+
       img.onload = function() {
         shimmer.classList.remove('post-thumbnail', 'shimmer');
         shimmer.style.display = 'none';
@@ -254,11 +239,13 @@ async function loadArtworks() {
 
         gsap.from(artworkElement.querySelector('.artwork-tittle'), {
           y: "100%",
-          duration: 0.5,
+          duration: 1,
           scrollTrigger: {
             trigger: artworkElement,
-            start: "top 90%",
-            scrub: 0.1
+            start: "top 75%",
+            end :"bottom  center",
+            toggleActions: "play none none reset", 
+    
           }
         });
 
@@ -269,8 +256,10 @@ async function loadArtworks() {
           stagger: 0.2,
           scrollTrigger: {
             trigger: artworkElement,
-            start: "top 90%",
-            scrub: 1
+            start: "top 75%",
+            end :"bottom  center",
+            toggleActions: "play none none reset", 
+    
           }
         });
       };
@@ -279,75 +268,62 @@ async function loadArtworks() {
         console.error('Error loading image:', artwork.image);
       };
     });
+
+    // Load swiper slider artworks
+    const displayArtworks = data.displayArt; 
+    const swiperWrapper = document.getElementById('artworks-wrapper');
+
+    displayArtworks.forEach(artwork => {
+      const slide = document.createElement('div');
+      slide.classList.add('swiper-slide');
+
+      const img = document.createElement('img');
+      img.src = artwork.src;  
+      img.alt = artwork.title; 
+
+      slide.appendChild(img);
+      swiperWrapper.appendChild(slide);
+    });
+
+    initializeSwiper(); 
+
   } catch (error) {
     console.error('Error fetching the artwork data:', error);
   }
 }
 
-window.onload = function() {
-  loadArtworks(); 
-};
-
-
-async function loadDisplayArtworks() {
-    try {
-        const response = await fetch('assets/data/artworks.json'); 
-        const data = await response.json(); 
-
-        const artworks = data.displayArt; 
-        const swiperWrapper = document.getElementById('artworks-wrapper');
-
-        // Create swiper-slide divs for each artwork using displayArt.src
-        artworks.forEach(artwork => {
-            const slide = document.createElement('div');
-            slide.classList.add('swiper-slide');
-
-            const img = document.createElement('img');
-            img.src = artwork.src;  
-            img.alt = artwork.title; 
-
-            slide.appendChild(img);
-            swiperWrapper.appendChild(slide);
-        });
-
-        initializeSwiper(); 
-    } catch (error) {
-        console.error('Error loading artworks:', error);
-    }
-}
-
 function initializeSwiper() {
-    var swiper = new Swiper(".swiper-container", {
-        slidesPerView: 3,  // Default: 3 slides per view
+  var swiper = new Swiper(".swiper-container", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    freeMode: true,
+    loop: true,
+    autoplay: {     
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      578: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
         spaceBetween: 30,
-        freeMode: true,
-        loop: true,  // Infinite loop
-        autoplay: {     
-            delay: 2000,  // 2 seconds delay between automatic slide transitions
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {  // Breakpoints for responsive behavior
-            768: {
-                slidesPerView: 2,  // At screen widths >= 768px, display 1 slide
-                spaceBetween: 20,  // Adjust space between slides as needed
-            },
-            1024: {
-                slidesPerView: 3,  // At screen widths >= 1024px, display 3 slides
-                spaceBetween: 30,  // Default space between slides
-            },
-            578: {
-                slidesPerView: 2,  // At screen widths >= 768px, display 1 slide
-                spaceBetween: 20,  // Adjust space between slides as needed
-            }
-        }
-    });
+      }
+    }
+  });
 }
 
-loadDisplayArtworks();
+loadAndDisplayArtworks();
 
 
 
@@ -428,3 +404,8 @@ function sendEmail(e) {
 
 document.getElementById("form").addEventListener("submit",sendEmail);
 
+const copyrightMsg = () => {
+    document.getElementById("year").innerHTML = "&copy" + new Date().getFullYear() + ". All rights reserved. ";
+}
+
+copyrightMsg();
