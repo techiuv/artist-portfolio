@@ -181,18 +181,16 @@ function animateHeading() {
 
 animateHeading();
 
-
-
 async function loadAndDisplayArtworks() {
   try {
-    const response = await fetch('assets/data/artworks.json');
+    const response = await fetch('assets/data/data.json');
     
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
-    
+
     // Load main artworks gallery
     const artworks = data.artworks;
     let artworkContainer = document.getElementById('artwork-container');
@@ -234,97 +232,120 @@ async function loadAndDisplayArtworks() {
         shimmer.classList.remove('post-thumbnail', 'shimmer');
         shimmer.style.display = 'none';
         img.style.display = 'block';
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from(artworkElement.querySelector('.artwork-tittle'), {
-          y: "100%",
-          duration: 1,
-          scrollTrigger: {
-            trigger: artworkElement,
-            start: "top 75%",
-            end :"bottom  center",
-            toggleActions: "play none none reset", 
-    
-          }
-        });
-
-        gsap.from(artworkElement.querySelectorAll('p'), {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: artworkElement,
-            start: "top 75%",
-            end :"bottom  center",
-            toggleActions: "play none none reset", 
-    
-          }
-        });
       };
 
       img.onerror = function() {
         console.error('Error loading image:', artwork.image);
       };
-    });
 
-    // Load swiper slider artworks
+      // GSAP animations for artwork title and paragraphs
+      gsap.from(artworkElement.querySelector('.artwork-tittle'), {
+        y: "100%",
+        duration: 1,
+        scrollTrigger: {
+          trigger: artworkElement,
+          start: "top 75%",
+          end: "bottom center",
+          toggleActions: "play none none reset", 
+        }
+      });
+
+      gsap.from(artworkElement.querySelectorAll('p'), {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: artworkElement,
+          start: "top 75%",
+          end: "bottom center",
+          toggleActions: "play none none reset", 
+        }
+      });
+    });
+    
+    // Load display artworks
     const displayArtworks = data.displayArt; 
-    const swiperWrapper = document.getElementById('artworks-wrapper');
+    const displayWrapper = document.getElementById('display-wrapper');
 
-    displayArtworks.forEach(artwork => {
+    displayArtworks.forEach(artwork => { 
       const slide = document.createElement('div');
-      slide.classList.add('swiper-slide');
+      slide.classList.add('col-6','col-md-4','px-0','px-md-4','py-2','py-md-4');
+      
+      slide.innerHTML = `
+        <img src="${artwork.src}" alt="" class="img-fluid displayWork" style="display: none;" data-bs-toggle="modal" data-bs-target="#Modal">
+        <span class="post-thumbnail shimmer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#535353" class="bi bi-image-alt" viewBox="0 0 16 16">
+            <path d="M7 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m4.225 4.053a.5.5 0 0 0-.577.093l-3.71 4.71-2.66-2.772a.5.5 0 0 0-.63.062L.002 13v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4.5z"/>
+          </svg>
+        </span>
+      `;
 
-      const img = document.createElement('img');
-      img.src = artwork.src;  
-      img.alt = artwork.title; 
+      displayWrapper.appendChild(slide);
 
-      slide.appendChild(img);
-      swiperWrapper.appendChild(slide);
+      const displayWork = slide.querySelector('.displayWork');
+      const shimmer = slide.querySelector('.post-thumbnail.shimmer');
+
+      // Event listener to open modal and set image source
+      displayWork.addEventListener('click', () => {
+        document.getElementById('displayWorkModalImage').src = artwork.src;
+      });
+
+      displayWork.onload = function() {
+        shimmer.classList.remove('post-thumbnail', 'shimmer');
+        shimmer.style.display = 'none';
+        displayWork.style.display = 'block';
+      };
+
+      displayWork.onerror = function() {
+        console.error('Error loading image:', artwork.src);
+      };
     });
-
-    initializeSwiper(); 
 
   } catch (error) {
     console.error('Error fetching the artwork data:', error);
   }
 }
 
-function initializeSwiper() {
-  var swiper = new Swiper(".swiper-container", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    freeMode: true,
-    loop: true,
-    autoplay: {     
-      delay: 2000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      578: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      }
-    }
-  });
-}
-
 loadAndDisplayArtworks();
 
+
+async function loadUpcomingProjects() {
+  try {
+    const response = await fetch('assets/data/data.json'); // Path to your JSON file
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    
+    const projects = data.upcomingProjects; // Adjusted according to your JSON structure
+    const projectsContainer = document.getElementById('upcoming-projects-container'); // Make sure this element exists in your HTML
+
+    projects.forEach(project => {
+      const projectElement = document.createElement('article');
+      projectElement.classList.add('project');
+
+      projectElement.innerHTML = `
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <p><strong>Estimated Completion:</strong> ${project.estimatedCompletion}</p>
+        <p><strong>Medium:</strong> ${project.medium}</p>
+        <img src="${project.image}" alt="${project.title} artwork" class="img-fluid">
+      `;
+
+      projectsContainer.appendChild(projectElement);
+    });
+
+  } catch (error) {
+    console.error('Error fetching the upcoming projects:', error);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadUpcomingProjects();
+});
 
 
 function validateForm() {
@@ -409,3 +430,6 @@ const copyrightMsg = () => {
 }
 
 copyrightMsg();
+
+
+
