@@ -70,6 +70,7 @@ function initializeNavigation() {
   });
 
   // Set up off-canvas navigation
+    // when nav li a clicked then it will hide offcanvas 
   document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', function(event) {
       const targetId = this.getAttribute('href');
@@ -108,15 +109,15 @@ function homePageAnimation() {
     document.getElementById("exp").innerHTML = exp + " years";
   }
 
-  calcExp();
+  calcExp(); // This fn is used to auto update the experience and avoid manual change 
 
   const selector = {
     paragraph: Splitting({
-      target: '.hero-paragraph-text',
+      target: '.hero-paragraph-text', // Split Thr paragraph into words
       by: 'words',
     }),
   };
-
+    
   const initLenis = () => {
     const lenis = new Lenis({
       lerp: 0.05,
@@ -156,14 +157,14 @@ function homePageAnimation() {
 
 homePageAnimation();
 
-
+// Target all heading of each section and Animate it 
 function animateHeading() {
   const revealTexts = document.querySelectorAll(".reveal-text");
 
   revealTexts.forEach(text => {
     const section = text.closest("section")?.id;
     
-    if (!section) return;
+    if (!section) return; 
     
     gsap.from(text, {
       y: 100,
@@ -181,6 +182,9 @@ function animateHeading() {
 
 animateHeading();
 
+// loading data using json for better readability and optimization 
+// This loadAndDisplayArtworks() loads the main artworks and info of them also the display works 
+// This fn also handle the skeleton loading of imgs and animation 
 async function loadAndDisplayArtworks() {
   try {
     const response = await fetch('assets/data/data.json');
@@ -196,7 +200,7 @@ async function loadAndDisplayArtworks() {
     let artworkContainer = document.getElementById('artwork-container');
 
     artworks.forEach(artwork => {
-      let artworkElement = document.createElement('figure');
+      let artworkElement = document.createElement('figure'); // Using semantic tags for better seo 
       artworkElement.classList.add('artwork');
 
       artworkElement.innerHTML = `
@@ -270,7 +274,7 @@ async function loadAndDisplayArtworks() {
 
     displayArtworks.forEach(artwork => { 
       const slide = document.createElement('div');
-      slide.classList.add('col-6','col-md-4','px-0','px-md-4','py-2','py-md-4');
+      slide.classList.add('col-6','col-md-4','px-0','px-md-4','py-2','py-md-4'); // bootstrap@5.3.3  classes 
       
       slide.innerHTML = `
         <img src="${artwork.src}" alt="" class="img-fluid displayWork" style="display: none;" data-bs-toggle="modal" data-bs-target="#Modal">
@@ -309,7 +313,7 @@ async function loadAndDisplayArtworks() {
 
 loadAndDisplayArtworks();
 
-
+// load upcoming projects using the json 
 async function loadUpcomingProjects() {
   try {
     const response = await fetch('assets/data/data.json'); // Path to your JSON file
@@ -327,6 +331,7 @@ async function loadUpcomingProjects() {
       const projectElement = document.createElement('article');
       projectElement.classList.add('project');
 
+      // all the data in inner HTML here 
       projectElement.innerHTML = `
         <h3>${project.title}</h3>
         <p>${project.description}</p>
@@ -347,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadUpcomingProjects();
 });
 
-
+// This fn will check name and email input using regular expression 
 function validateForm() {
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -358,14 +363,14 @@ function validateForm() {
   const toastBody = document.querySelector('.toast-body');
 
   // Regular expressions for validation
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const namePattern = /^[a-zA-Z\s]+$/; 
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+  const namePattern = /^[a-zA-Z\s]+$/; // Allow only letters and spaces , reject numbers.and symbol 
   
    
   if (name === '') {
     toastBody.innerHTML = "Name cannot be empty!";
     toastBootstrap.show();
-    return false;
+    return false; // stop form submission 
   } else if (!namePattern.test(name)) {
     toastBody.innerHTML = "Name can only contain letters and spaces!";
     toastBootstrap.show();
@@ -393,6 +398,9 @@ function validateForm() {
   return true;
 }
 
+// This is a temporary code and may be removed 
+// This fn is using Email.js cdn for delivering mails
+// If netlify submission works this fn will be removed 
 function sendEmail(e) {
   e.preventDefault();
   const name = document.getElementById('name').value.trim();
@@ -422,9 +430,10 @@ function sendEmail(e) {
 }
 
 
-
 document.getElementById("form").addEventListener("submit",sendEmail);
 
+
+// copyrightMsg 
 const copyrightMsg = () => {
     document.getElementById("year").innerHTML = "&copy" + new Date().getFullYear() + ". All rights reserved. ";
 }
