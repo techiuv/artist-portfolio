@@ -36,18 +36,49 @@
     {
       "title": "Artwork Three",
       "description": "A modern landscape capturing nature's beauty.",
-      "src": "assets/img/artworks/1000014535.jpg"
+      "src": "assets/img/artworks/1000014536.jpg"
     },
     {
       "title": "Artwork Four",
       "description": "A colorful representation of urban life.",
       "src": "assets/img/artworks/1000011181.jpg"
+    }
+  ],
+  "upcomingProjects": [
+    {
+      "title": "Metamorphosis",
+      "description": "An exploration of transformation, depicting the journey of a human soul as it evolves through struggles, resilience, and eventual rebirth.",
+      "estimatedCompletion": "2025",
+      "medium": "Charcoal & Graphite",
+      "image": "assets/img/upcoming/Metamorphosis.jpg"
     },
     {
-      "title": "Artwork Five",
-      "description": "A captivating abstract work in shades of blue.",
-      "src": "assets/img/artworks/1000014536.jpg"
+      "title": "The Silent Echo",
+      "description": "An art piece capturing the paradox of silence within chaos, reflecting the inner stillness found amidst life's turmoil.",
+      "estimatedCompletion": "2025",
+      "medium": "Watercolor",
+      "image": "assets/img/upcoming/The_Silent_Echo.jpg"
+    },
+    {
+      "title": "Soul Reflections",
+      "description": "A project aimed at mirroring the unseen layers of the human spirit, evoking deep emotions and introspection.",
+      "estimatedCompletion": "2025",
+      "medium": "Oil on Canvas",
+      "image": "assets/img/upcoming/Soul_Reflections.jpg"
+    },
+    {
+      "title": "Fragments of Time",
+      "description": "An exploration of memories and the fragments that make up our lives, depicting moments suspended in time.",
+      "estimatedCompletion": "2025",
+      "medium": "Mixed Media",
+      "image": "assets/img/upcoming/Fragments_of_Time.jpg"
+    },
+    {
+      "title": "Beyond the Horizon",
+      "description": "A landscape capturing the vastness of nature and the unknown, symbolizing the journey beyond comfort zones.",
+      "estimatedCompletion": "2025",
+      "medium": "Acrylic",
+      "image": "assets/img/upcoming/Beyond_the_Horizon.jpg"
     }
-    
   ]
 }
