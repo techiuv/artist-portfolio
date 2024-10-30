@@ -53,7 +53,7 @@ p {
     color: var(--tertiary-color);
     font-weight: var(--font-light);
     font-size: 2rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 a {
@@ -211,30 +211,12 @@ nav {
     text-align: right;
 }
 
-/* ---------------------- Swiper Styles ---------------------- */
-.swiper-container {
+.displayWork{
     width: 90%;
-    overflow: hidden;
-    height: 400px;
-    margin: auto;
 }
 
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s;
-    width: 32%;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.swiper-slide-active {
-    transform: scale(1.1);
+.displayWork div img {
+    border-radius: 5px;
 }
 
 /* ---------------------- Skeleton Loading ---------------------- */
@@ -284,7 +266,8 @@ nav {
     padding: 0 .5%;
 }
 
-#modal-close-btn {
+#modal-close-btn,
+#modal-cloe-btn-2 {
     position: absolute;
     top: 0;
     right: 5%;
@@ -356,6 +339,8 @@ button {
 small {
     color: var(--tertiary-color);
 }
+
+
 
 /* ---------------------- Responsive ---------------------- */
 @media screen and (max-width:1024px){    
