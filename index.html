@@ -76,7 +76,7 @@
                                 <li><a href="#portfolio">Portfolio</a></li>
                             </ul>
                             <ul class="w-50">
-                                <li><a href="#talents">Talents</a></li>
+                                <li><a href="#projects">Projects</a></li>
                              
                                 <li><a href="#contact">Contacts</a></li>
                             </ul>
@@ -127,7 +127,7 @@
     <main>
         
         <section id="home">
-            <div class="" id="">
+            <div id="home">
                 <div>
                     <h3></h3>
                 </div>
@@ -167,8 +167,41 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-container">
-                <div class="swiper-wrapper" id="artworks-wrapper"></div>
+            
+            <div id="display-wrapper" class="row displayWork mx-auto">
+                
+                <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                    <button type="button" class="btn-close btn-close-white position-absolute " data-bs-dismiss="modal" aria-label="Close" id="modal-cloe-btn-2"></button>  
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content bg-transparent position-relative border-0">    
+                            <div class="modal-body">
+                                <img src="" id="displayWorkModalImage" class="img-fluid" alt="Artwork">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-6 col-md-4 px-4">
+                    <img src="assets/img/artworks/1000011181jpg" alt="" class="img-fluid displayWork">
+                    <span class="post-thumbnail shimmer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#535353" class="bi bi-image-alt" viewBox="0 0 16 16">
+                            <path d="M7 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m4.225 4.053a.5.5 0 0 0-.577.093l-3.71 4.71-2.66-2.772a.5.5 0 0 0-.63.062L.002 13v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4.5z"/>
+                         </svg>
+                    </span>
+                </div> -->
+                
+            </div>
+
+        </section>
+        
+        <section id="projects">
+            <div class="text-container heading">
+                <h3 class="reveal-text">Upcoming</h3>
+            </div>
+            <div class="text-container heading">
+                <h3 class="reveal-text">Projects</h3>
+            </div>
+            <div id="upcoming-projects-container">
+                
             </div>
         </section>
 
@@ -214,7 +247,7 @@
                 <button type="submit">Send</button>
              </form>        
              
-             <div class="toast-container position-fixed bottom-0 end-0 p-3">
+             <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
                   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
                      <!--  <img src="..." class="rounded me-2" alt="..."> -->
@@ -244,7 +277,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
       <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
     <script type="text/javascript">
    (function() {
@@ -257,4 +289,3 @@
     
 </body>
 </html>
-
