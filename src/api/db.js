@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+dotenv.config()
+
 
 let isConnected = false
 
@@ -7,7 +10,7 @@ const connectDB = async () => {
         return;
     }
     try {
-        const db = await mongoose.connect(process.env.MONGO_URI, {
+        const db = await mongoose.connect("mongodb+srv://mailyuvraj0317:EtlUb1RLLKq0zj0Q@formdata.ie7e9.mongodb.net/?retryWrites=true&w=majority&appName=FormData", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
