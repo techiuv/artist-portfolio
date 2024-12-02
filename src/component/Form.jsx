@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const Form = () => {
@@ -54,51 +55,54 @@ const Form = () => {
   };
 
   return (
-    <form className="max-w-md mx-auto p-4 space-y-4" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="firstName" className="block font-medium">First Name</label>
+    <form className="w-[90%] md:w-3/4 mx-auto p-4 bg-secondary-color rounded-3xl py-2 lg:py-4 my-11" onSubmit={handleSubmit}>
+
+      <h3 className=' text-white text-center my-2  text-2xl lg:text-4xl font-bold'>Get in touch</h3>
+      <p className='text-[#BDBDBD] text-center font-normal'>You can reach me anytime</p>
+      <div className='py-3 lg:py-2 flex flex-col lg:flex-row gap-4 md:gap-3 justify-between items-center w-[100%] lg:w-[85%] mx-auto'>
         <input
           type="text"
           name="firstName"
+          placeholder='First Name'
           value={formData.firstName}
           onChange={handleChange}
-          className="w-full border px-2 py-1 rounded"
+          className="w-full md:w-[50%] border px-4 md:px-6 py-2  lg:py-2 rounded-3xl  bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent active:bg-transparent"
         />
-      </div>
-      <div>
-        <label htmlFor="secondName" className="block font-medium">Second Name</label>
         <input
           type="text"
           name="secondName"
+          placeholder='Second Name'
           value={formData.secondName}
           onChange={handleChange}
-          className="w-full border px-2 py-1 rounded"
+          className="w-full md:w-[50%] border px-4 md:px-6 py-2  lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent active:bg-transparent"
         />
+
       </div>
-      <div>
-        <label htmlFor="email" className="block font-medium">Email</label>
+
+      <div className='w-[100%] lg:w-[85%] mx-auto'>
         <input
           type="email"
           name="email"
+          placeholder='Email'
           value={formData.email}
           onChange={handleChange}
-          className="w-full border px-2 py-1 rounded"
+          className="w-full border px-4 md:px-6 py-2 my-2  lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent active:bg-transparent"
         />
       </div>
-      <div>
-        <label htmlFor="message" className="block font-medium">Message</label>
+      <div className='w-[100%] lg:w-[85%] mx-auto'>
         <textarea
           name="message"
+          placeholder='Your Message'
           value={formData.message}
           onChange={handleChange}
-          className="w-full border px-2 py-1 rounded"
+          className="w-full border px-4 md:px-6 py-2 my-2  lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent hover:bg-transparent valid:bg-transparent active:bg-transparent"
         />
       </div>
-      {error && <p className="text-red-500">{error}</p>}
-      {success && <p className="text-green-500">{success}</p>}
+      {error && <p className="text-red-500 text-center" >{error}</p>}
+      {success && <p className="text-green-500  text-center">{success}</p>}
       <button
         type="submit"
-        className={`w-full py-2 bg-blue-500 text-white rounded ${loading && 'opacity-50 cursor-not-allowed'}`}
+        className={` px-5 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color rounded-full w-auto text-white ${loading && 'opacity-50 cursor-not-allowed'}`}
         disabled={loading}
       >
         {loading ? 'Submitting...' : 'Submit'}

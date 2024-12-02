@@ -1,21 +1,6 @@
 .text-stroke-1 {
     -webkit-text-stroke: 1px #fff; /* A solid color stroke */
     text-stroke: 1px #fff; /* For non-webkit browsers */
-  }
+}
 
-  .text-gradient-stroke {
-    position: relative;
-    font-weight: bold;
-  }
 
-  .text-gradient-stroke::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    -webkit-text-stroke: 1px transparent;
-    background: linear-gradient(90deg, #B3B3B3, #383838);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
