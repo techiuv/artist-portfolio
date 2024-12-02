@@ -1,25 +1,19 @@
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-dotenv.config()
+const mongoose = require('mongoose');
 
-
-let isConnected = false
+let isConnected = false;
 
 const connectDB = async () => {
-    if (isConnected) {
-        return;
-    }
-    try {
-        const db = await mongoose.connect("mongodb+srv://mailyuvraj0317:EtlUb1RLLKq0zj0Q@formdata.ie7e9.mongodb.net/?retryWrites=true&w=majority&appName=FormData", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        isConnected = db.connect[0].readyState === 1;
-        console.log('DB connected');
-    } catch (err) {
-        console.error(err);
+  if (isConnected) return;
+  try {
+    const db = await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    isConnected = db.connections[0].readyState === 1;
+    console.log('MongoDB Connected');
+  } catch (error) {
+    console.error('MongoDB Connection Error:', error);
+  }
+};
 
-    }
-}
-
-module.exports = connectDB
+module.exports = connectDB;
