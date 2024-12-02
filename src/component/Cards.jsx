@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cards = ({ path, title, year, description, medium }) => {
+const Cards = ({ path, tittle, year, description, medium }) => {
   return (
     <div className='w-[100%] flex items-center flex-col md:flex-row justify-center rounded-3xl bg-secondary-color backdrop-blur-2xl p-3 md:p-6 mt-3 md:mt-6'>
 
