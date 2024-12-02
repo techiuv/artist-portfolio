@@ -16,7 +16,7 @@ const Cards = ({ path, tittle, year, description, medium }) => {
         </div>
 
         <div className='w-[100%]'>
-          <h2 className='font-bold text-2xl my-3 md:text-3xl uppercase'>{title}</h2>
+          <h2 className='font-bold text-2xl my-3 md:text-3xl uppercase'>{tittle}</h2>
           <p className='text-sm md:text-xl lg:text-2xl my-2 text-[#BDBDBD] font-normal '>{description}</p>
 
         </div>
