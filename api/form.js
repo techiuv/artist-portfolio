@@ -1,24 +1,25 @@
-const connectDB = require('../src/api/db');
-const Form = require('./models/Form');
+import mongoose from 'mongoose';
+import Form from './models/Form.js';
+import dbConnect from './db.js';
 
-module.exports = async (req, res) => {
-  if (req.method === 'POST') {
-    await connectDB();
-    const { firstName, secondName, email, message } = req.body;
+export default async function handler(req, res) {
+  try {
+    await dbConnect();
+    if (req.method === 'POST') {
+      const { firstName, lastName, email, message } = req.body;
 
-    if (!firstName || !secondName || !email || !message) {
-      return res.status(400).json({ error: 'All fields are required' });
-    }
+      if (!firstName || !email || !message) {
+        return res.status(400).json({ error: 'All fields are required' });
+      }
 
-    try {
-      const form = new Form({ firstName, secondName, email, message });
+      const form = new Form({ firstName, lastName, email, message });
       await form.save();
-      return res.status(201).json({ success: true, message: 'Form submitted successfully!' });
-    } catch (error) {
-      console.error('Error saving form:', error);
-      return res.status(500).json({ error: 'Internal Server Error' });
+      return res.status(201).json({ success: true, message: 'Form submitted' });
     }
-  } else {
-    return res.status(405).json({ error: 'Method not allowed' });
+
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  } catch (error) {
+    console.error('Error in API handler:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-};s
+}
