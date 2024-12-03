@@ -26,8 +26,8 @@ function App() {
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
           <div className='absolute h-[100%] w-[100%] text-center flex justify-between lg:justify-center lg:gap-20 items-center text-transparent  top-0 left-0  -z-10 '>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[11vw] md:text-[11.5vww]  lg:text-[150px] text-gradient-stroke mb-28'>Artist</h3>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[11vw] md:text-[11.5vww]  lg:text-[150px] text-gradient-stroke mb-28'> Yuvraj</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[10.5vw] md:text-[11.5vww]  lg:text-[150px] text-gradient-stroke mb-28'>Artist</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[10.5vw] md:text-[11.5vww]  lg:text-[150px] text-gradient-stroke mb-28'> Yuvraj</h3>
           </div>
 
 
@@ -44,7 +44,7 @@ function App() {
 
           <h3 className='text-center mx-auto text-[9vw]  lg:text-[7rem] font-bold drop-shadow-md uppercase'>featured Work</h3>
 
-          <div className='w-[90%] md:w-[80%] lg:w-[75%]  mx-auto'>
+          <div className='w-[90%] md:w-3/4  mx-auto'>
 
             <Cards tittle={'Fallen in Love'} description={"Fallen in Love is a stunning portrayal of a fleeting moment where emotions rise to the surface without words. The eye becomes the storyteller, capturing the intensity of love so deep it dilates the very essence of one's being.The dark, expansive pupil is more than just a biological response; reflecting the sudden rush of emotion when sight meets the beloved."} year={2024} medium={'charcoal'} path={'/artworks/Yuvraj_Fallen_In_Love_11.7inch×16.5inch_charcoal_2024.jpg'} />
 
