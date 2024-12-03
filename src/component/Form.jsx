@@ -57,7 +57,7 @@ const Form = () => {
   return (
     <form className="w-[90%] md:w-3/4 mx-auto p-4 bg-secondary-color rounded-3xl py-2 lg:py-4 my-11" onSubmit={handleSubmit}>
 
-      <h3 className=' text-white text-center my-2  text-2xl lg:text-4xl font-bold'>Get in Touch</h3>
+      <h3 className=' text-white text-center mt-4 mb-1 text-2xl lg:text-4xl font-bold'>Get in Touch</h3>
       <p className='text-[#BDBDBD] text-center font-normal'>You can reach me anytime</p>
       <div className='py-3 lg:py-2 flex flex-col md:flex-row gap-4 md:gap-3 justify-between items-center w-[100%] lg:w-[85%] mx-auto'>
         <input
@@ -106,11 +106,11 @@ const Form = () => {
       {success && <p className="text-green-500  text-center">{success}</p>}
       <button
         type="submit"
-        className={` px-5 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color rounded-full w-20 text-white ${loading && 'opacity-50 cursor-not-allowed'}`}
+        className={` px-5 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color rounded-full w-25 text-white ${loading && 'opacity-50 cursor-not-allowed'}`}
         disabled={loading}
       >
         {loading ? (
-          <div class="w-6 h-6 border-4 border-dotted border-t-transparent border-blue-500 rounded-full animate-spin"></div>
+          <div class="w-6 h-6 border-4 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
         ) : (
           'Submit'
         )}
