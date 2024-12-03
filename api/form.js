@@ -1,5 +1,5 @@
 import connectToDatabase from './db.js';
-import Form from './models/Form.js';
+import FormData from './models/FormSchema.js';
 
 export default async function handler(req, res) {
   await connectToDatabase();
