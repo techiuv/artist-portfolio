@@ -7,6 +7,6 @@ const formSchema = new mongoose.Schema({
   message: { type: String, required: true },
 });
 
-const FormData = mongoose.models.Form || mongoose.model('Form', formSchema);
+const FormData = mongoose.models.Form || mongoose.model('FormData', formSchema);
 
 export default FormData; 
