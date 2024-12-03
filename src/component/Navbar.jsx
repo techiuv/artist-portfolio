@@ -53,7 +53,7 @@ const Navbar = () => {
     <nav
       className={`${
         scrollY > 50 ? 'fixed top-0 left-0 right-0 bg-[#ffffff09] backdrop-blur-md z-50' : ''
-      } flex justify-between items-center w-full min-h-[5vh] px-2 md:px-7 transition-all py-2 duration-300 z-50`}
+      } flex justify-between items-center fixed top-0 left-0 right-0 w-full min-h-[5vh] px-2 md:px-7 transition-all py-2 duration-300 z-50`}
     >
       {/* Logo */}
       <div>
@@ -108,7 +108,7 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-0 bg-transparent h-[100%] w-[100%] z-40 transition-opacity duration-300 ${isOpen ? 'block' : 'hidden'}`}
+        className={`fixed inset-0 bg-transparent h-screen w-screen z-40 transition-opacity duration-300 ${isOpen ? 'block' : 'hidden'}`}
         onClick={toggleDrawer}
         role="presentation"
       ></div>
