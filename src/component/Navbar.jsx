@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${
-        scrollY > 50 ? 'fixed top-0 left-0 right-0 bg-[#ffffff09] backdrop-blur-md ' : ''
+        scrollY > 50 ? 'fixed top-0 left-0 right-0 bg-[#ffffff09] backdrop-blur-md z-50' : ''
       } flex justify-between items-center w-full min-h-[5vh] px-2 md:px-7 transition-all py-2 duration-300 z-50`}
     >
       {/* Logo */}
