@@ -22,12 +22,12 @@ function App() {
       <main>
         <section id='home' className='w-[100%]  h-auto lg:h-[100vh] relative flex justify-center items-center'>
           <div className='mx-auto relative w-[100%] lg:w-auto h-[100%]'>
-            <img src="/img/Firefly 20240729100151 2.png" alt="Artist Yuvraj" className='h-auto md:h-[100%]  aspect-[3/4] md:aspect-auto object-cover  ' />
+            <img src="/img/Firefly 20240729100151 2.png" alt="Artist Yuvraj" className='h-auto md:h-[100%] mx-auto  aspect-[3/4] md:aspect-auto object-cover  ' />
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
           <div className='absolute h-[100%] w-[100%] text-center flex justify-between lg:justify-center lg:gap-20 items-center text-transparent  top-0 left-0  -z-10 '>
             <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[10.5vw] md:text-[11.5vww]  lg:text-[150px] text-gradient-stroke mb-28'>Artist</h3>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[10.5vw] md:text-[11.5vww]  lg:text-[150px] text-gradient-stroke mb-28'> Yuvraj</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[10.5vw] md:text-[11.5vww]  lg:text-[150px] text-gradient-stroke mb-28'>Yuvraj</h3>
           </div>
 
 
