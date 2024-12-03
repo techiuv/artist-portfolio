@@ -25,9 +25,9 @@ function App() {
             <img src="/img/Firefly 20240729100151 2.png" alt="Artist Yuvraj" className='h-auto md:h-[100%] mx-auto  aspect-[3/4] md:aspect-auto object-cover  ' />
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
-          <div className='absolute h-[100%] w-[100%] text-center flex justify-center gap-10 lg:gap-20 items-center text-transparent  top-0 left-0  -z-10 '>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[12vw] md:text-[10vww]  lg:text-[150px] text-gradient-stroke mb-28'>Artist</h3>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[12vw] md:text-[10vww]  lg:text-[150px] text-gradient-stroke mb-28'>Yuvraj</h3>
+          <div className='absolute h-[100%] w-[100%] text-center flex justify-center gap-15 lg:gap-20 items-center text-transparent  top-0 left-0  -z-10 '>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[11vw] md:text-[10vww]  lg:text-[150px] text-gradient-stroke mb-28'>Artist</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-bold text-[11vw] md:text-[10vww]  lg:text-[150px] text-gradient-stroke mb-28'>Yuvraj</h3>
           </div>
 
 
