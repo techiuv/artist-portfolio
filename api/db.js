@@ -1,9 +1,26 @@
 import mongoose from 'mongoose';
 
-const MONGO_URI = "mongodb+srv://mailyuvraj0317:EtlUb1RLLKq0zj0Q@formdata.ie7e9.mongodb.net/?retryWrites=true&w=majority&appName=FormData";
+const MONGO_URI = process.env.MONGO_URI;
+
+let isConnected; 
 
 export default async function connectToDatabase() {
-  if (mongoose.connection.readyState === 1) return mongoose.connection;
-  await mongoose.connect(MONGO_URI);
-  console.log('Connected to MongoDB');
+  if (isConnected) {
+    return mongoose.connection;
+  }
+
+  if (mongoose.connection.readyState === 1) {
+    isConnected = true;
+    return mongoose.connection;
+  }
+
+  try {
+    const db = await mongoose.connect(MONGO_URI);
+    isConnected = db.connections[0].readyState === 1;
+    console.log('Connected to MongoDB');
+    return db;
+  } catch (error) {
+    console.error('Database connection error:', error);
+    throw error;
+  }
 }
