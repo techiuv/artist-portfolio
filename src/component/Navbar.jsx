@@ -53,7 +53,7 @@ const Navbar = () => {
     <nav
       className={`${
         scrollY > 50 ? 'fixed top-0 left-0 right-0 bg-[#ffffff09] backdrop-blur-lg ' : ''
-      } flex justify-between items-center w-full min-h-[8vh] px-2 md:px-7 transition-all duration-300 z-50`}
+      } flex justify-between items-center w-full min-h-[5vh] px-2 md:px-7 transition-all duration-300 z-50`}
     >
       {/* Logo */}
       <div>
@@ -64,7 +64,7 @@ const Navbar = () => {
 
       {/* Hamburger Icon for Mobile (Hidden on large screens) */}
       <div className="block lg:hidden">
-        <button onClick={toggleDrawer} className="text-2xl focus:outline-none">
+        <button onClick={toggleDrawer} className="text-xl focus:outline-none">
           {isOpen ? 'Close' : 'Menu'}
         </button>
       </div>
@@ -100,14 +100,13 @@ const Navbar = () => {
           <a
             href="#contact"
             className="bg-primary-color rounded-full py-2 px-3 mt-5 block"
-            onClick={handleNavLinkClick} // Close offcanvas on click
+            onClick={handleNavLinkClick} 
           >
             Contact
           </a>
         </div>
       </div>
 
-      {/* Offcanvas Overlay (Dark background overlay to close the drawer) */}
       <div
         className={`fixed inset-0 bg-transparent  z-40 transition-opacity duration-300 ${isOpen ? 'block' : 'hidden'}`}
         onClick={toggleDrawer}
