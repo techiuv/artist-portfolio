@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = "mongodb+srv://mailyuvraj0317:EtlUb1RLLKq0zj0Q@formdata.ie7e9.mongodb.net/?retryWrites=true&w=majority&appName=FormData";
 
 export default async function connectToDatabase() {
   if (mongoose.connection.readyState === 1) return mongoose.connection;
