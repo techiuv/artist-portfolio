@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const formSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
@@ -9,4 +9,4 @@ const formSchema = new mongoose.Schema({
 
 const FormData = mongoose.models.Form || mongoose.model('FormData', formSchema);
 
-export default FormData; 
+export default FormData;
