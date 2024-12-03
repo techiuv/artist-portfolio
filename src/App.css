@@ -8,7 +8,7 @@
     src: url('/fonts/SFPRODISPLAYMEDIUM.OTF');
 }
 
-body{
+a {
     font-family: 'portfoio-font', sans-serif;
 }
 
