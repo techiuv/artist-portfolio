@@ -85,21 +85,21 @@ function App() {
 
           <div className='w-[90%] md:w-3/4 mx-auto'>
             <Cards
-              title={'Fallen in Love'}
+              tittle={'Fallen in Love'}
               description={"Fallen in Love is a stunning portrayal of a fleeting moment where emotions rise to the surface without words. The eye becomes the storyteller, capturing the intensity of love so deep it dilates the very essence of one's being. The dark, expansive pupil is more than just a biological response; reflecting the sudden rush of emotion when sight meets the beloved."}
               year={2024}
               medium={'charcoal'}
               path={'/artworks/Yuvraj_Fallen_In_Love_11.7inch×16.5inch_charcoal_2024.jpg'}
             />
             <Cards
-              title={'Ephemeral Life'}
+              tittle={'Ephemeral Life'}
               description={'This artwork depicts a realistic hand sculpted in charcoal, seemingly deteriorating as the top part of the fingers disintegrates into small, textured fragments. The concept highlights the inevitable truth that every birth leads to a deadline, capturing the fragile balance between existence and oblivion.'}
               year={2024}
               medium={'charcoal'}
               path={'/artworks/Yuvraj_The_End_11.7inch×16.5inch_charcoal_2024.jpg'}
             />
             <Cards
-              title={'Growth'}
+              tittle={'Growth'}
               description={"This artwork shows a tree growing from a tightly clenched stack of rugged, textured hands, symbolizing life's obstacles such as struggles and resistance. Despite these challenges, the tree emerges with resilience, its roots piercing through the fingers, representing the unstoppable spirit of growth."}
               year={2024}
               medium={'charcoal'}
