@@ -18,12 +18,12 @@ function App() {
     
     tl.from(".hero-txt", {
        opacity: 0,
-       duration: 1,
+       duration: .5,
      });
 
     tl.from(".hero-img", {
       opacity: 0,
-      duration: 1,
+      duration: .5,
     })
 
     gsap.from(".about-para", {
@@ -31,7 +31,6 @@ function App() {
       duration: 1,
       scrollTrigger: {
         start: 'top 90%',
-        stagger: 0.3,
         scrub: 1,
         trigger: '#about',
       },
@@ -41,8 +40,7 @@ function App() {
       textShadow: "0px 0px 30px #FF7B00",
       duration: 1,
       scrollTrigger: {
-        start: 'top 60%',
-        stagger: 0.3,
+        start: 'top 50%',
         scrub: 1,
         trigger: '#portfolio',
       },
@@ -68,7 +66,7 @@ function App() {
             />
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
-          <div className='absolute h-[100%] w-[100%] text-center flex justify-between lg:gap-20 items-center text-transparent top-0 left-0 -z-10'>
+          <div className='absolute h-[100%] w-[90%] text-center flex justify-between lg:gap-20 items-center text-transparent top-0 left-0 -z-10'>
             <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[10vw] md:text-[11vww] lg:text-[11.5vw] text-gradient-stroke mb-28 hero-txt'>Artist</h3>
             <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[10vw] md:text-[10vww] lg:text-[11.5vw] text-gradient-stroke mb-28 hero-txt'>Yuvraj</h3>
           </div>
