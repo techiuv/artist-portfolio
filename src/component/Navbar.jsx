@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import NavList from './NavList';
 import { gsap } from 'gsap';
@@ -52,8 +51,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${scrollY > 50 ? 'fixed top-0 left-0 right-0 bg-[#ffffff09] backdrop-blur-md z-50' : ''
-        } flex justify-between items-center fixed top-0 left-0 right-0 w-full min-h-[5vh] px-2 md:px-7 transition-all py-2 duration-300 z-50`}
+      className={`${scrollY > 50 ? 'fixed lg:relative top-0 left-0 right-0 bg-[#ffffff09] backdrop-blur-md z-50' : ''
+        } flex justify-between items-center lg:relative fixed top-0 left-0 right-0 w-full min-h-[5vh] px-3 md:px-7 transition-all py-2 duration-300 z-50`}
     >
       {/* Logo */}
       <div>
@@ -66,10 +65,10 @@ const Navbar = () => {
       <div className="block lg:hidden">
         <button onClick={toggleDrawer} className="text-xl focus:outline-none">
           {isOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#ffffff" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
             </svg>) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#ffffff" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
             </svg>
           )}
@@ -88,7 +87,7 @@ const Navbar = () => {
       {/* Contact Button for Desktop (Visible on large screens) */}
       <div className="hidden lg:block contact" >
         <a href="#contact" className="bg-primary-color text-sm rounded-full py-2 px-3">
-          Contact
+          Contact Us
         </a>
       </div>
 
@@ -98,7 +97,7 @@ const Navbar = () => {
           } transition-transform duration-300 z-50`}
       >
         <div className="p-5">
-          <ul className="flex flex-col items-center gap-4">
+          <ul className="flex flex-col items-center gap-2">
             <NavList href="home" className="nav-item"  handleNavLinkClick={handleNavLinkClick}/>
             <NavList href="about" className="nav-item" handleNavLinkClick={handleNavLinkClick}  />
             <NavList href="portfolio" className="nav-item" handleNavLinkClick={handleNavLinkClick}  />
