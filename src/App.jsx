@@ -15,10 +15,11 @@ function App() {
   useGSAP(() => {
 
 
-    // tl.from(".hero-txt", {
-    //   opacity: 0,
-    //   duration: 1,
-    // });
+    
+    tl.from(".hero-txt", {
+       opacity: 0,
+       duration: 1,
+     });
 
     tl.from(".hero-img", {
       opacity: 0,
