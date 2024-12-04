@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const Form = () => {
@@ -110,7 +109,7 @@ const Form = () => {
         disabled={loading}
       >
         {loading ? (
-          <div class="w-6 h-6 border-3 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
+          <div class="w-6 h-6 border-4 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
         ) : (
           'Submit'
         )}
