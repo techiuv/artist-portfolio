@@ -1,9 +1,9 @@
 import React from 'react'
 
-const NavList = ({href}) => {
+const NavList = ({href, handleNavLinkClick}) => {
   return (
-    <li>
-      <a href={`#${href}`} className='cursor-pointer text-gray-600 active:text-white hover:text-white '>{href}</a>
+    <li className='h-[43px] flex justify-center items-center w-[82px] hover:bg-[#535353] rounded-xl '>
+      <a href={`#${href}`} className='cursor-pointer   text-white font-normal text-sm capitalize ' onClick={handleNavLinkClick}>{href}</a>
     </li>
   )
 }

@@ -106,11 +106,11 @@ const Form = () => {
       {success && <p className="text-green-500  text-center">{success}</p>}
       <button
         type="submit"
-        className={` px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color rounded-full w-[6rem] text-white ${loading && 'opacity-50 cursor-not-allowed'}`}
+        className={` px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color text-sm rounded-full w-[6rem] text-white ${loading && 'opacity-50 cursor-not-allowed'}`}
         disabled={loading}
       >
         {loading ? (
-          <div class="w-6 h-6 border-2 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
+          <div class="w-6 h-6 border-3 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
         ) : (
           'Submit'
         )}
