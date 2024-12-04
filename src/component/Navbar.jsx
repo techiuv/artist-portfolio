@@ -57,7 +57,7 @@ const Navbar = () => {
     >
       {/* Logo */}
       <div>
-        <a href="/" className="cursor-pointer font-normal text-xl ">
+        <a href="/" className="cursor-pointer logo font-normal text-xl ">
           Artfolio
         </a>
       </div>
