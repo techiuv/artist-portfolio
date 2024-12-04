@@ -93,7 +93,7 @@ const Navbar = () => {
 
       {/* Offcanvas Drawer for Mobile (Visible on small screens) */}
       <div
-        className={`fixed top-0 left-0 w-full h-60 bg-nav-bg backdrop-blur-md transform ${isOpen ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed top-0 left-0 w-full h-60 bg-[#151414] backdrop-blur-md transform ${isOpen ? 'translate-y-0' : '-translate-y-full'
           } transition-transform duration-300 z-50`}
       >
         <div className="p-5">
