@@ -1,4 +1,4 @@
-import { db } from "../config/firebaseConfig";
+import { db } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 // Function to submit form data
