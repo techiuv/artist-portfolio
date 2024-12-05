@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { db } from "/backend/config/firebase";
+import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    secondName: "",
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
 
+  const [status, setStatus] = useState("");  // Status message for errors/success
+  const [loading, setLoading] = useState(false);  // Loading state for submit button
+
+  // Handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,9 +21,10 @@ const Form = () => {
     });
   };
 
+  // Submit form data to Firestore
   const submitFormData = async (data) => {
     try {
-      await addDoc(collection(db, "formSubmissions"), data);
+      await addDoc(collection(db, "formSubmissions"), data);  // Submit data to Firestore
       return { success: true };
     } catch (error) {
       console.error("Error submitting form data:", error);
@@ -28,36 +32,38 @@ const Form = () => {
     }
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("");
-  setLoading(true);
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("");  // Reset status
+    setLoading(true);  // Set loading state
 
-  const { name, email, message } = formData;
+    const { firstName, secondName, email, message } = formData;
 
-  if (!name || !email || !message) {
-    setStatus("All fields are required.");
-    setLoading(false);
-    return;
-  }
-
-  try {
-    const response = await submitFormData(formData);
-
-    if (response.success) {
-      setStatus("Form submitted successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      setStatus("Error submitting form. Please try again.");
+    // Check if all fields are filled
+    if (!firstName || !secondName || !email || !message) {
+      setStatus("All fields are required.");
+      setLoading(false);
+      return;
     }
-  } catch (error) {
-    console.error("Error during form submission: ", error);
-    setStatus("An error occurred while submitting the form. Please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
 
+    try {
+      // Submit the form data
+      const response = await submitFormData(formData);
+
+      if (response.success) {
+        setStatus("Form submitted successfully!");  // Success message
+        setFormData({ firstName: "", secondName: "", email: "", message: "" });  // Clear form
+      } else {
+        setStatus("Error submitting form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      setStatus("An error occurred while submitting the form. Please try again.");
+    } finally {
+      setLoading(false);  // Set loading to false after submission
+    }
+  };
 
   return (
     <form
@@ -67,37 +73,44 @@ const Form = () => {
       <h3 className="text-white text-center mt-4 mb-1 text-2xl lg:text-4xl font-bold">
         Get in Touch
       </h3>
-      <p className="text-[#BDBDBD] text-center font-normal">
-        You can reach me anytime
-      </p>
+      <p className="text-[#BDBDBD] text-center font-normal">You can reach me anytime</p>
 
-      {/* Name */}
-      <div className="w-[100%] lg:w-[85%] mx-auto">
+      {/* Name Inputs */}
+      <div className="py-3 lg:py-2 flex flex-col md:flex-row gap-4 md:gap-3 justify-between items-center w-[100%] lg:w-[85%] mx-auto">
         <input
           type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
+          name="firstName"
+          placeholder="First Name"
+          value={formData.firstName}
           onChange={handleChange}
           autoComplete="off"
-          className="w-full border px-4 md:px-6 py-3 my-2 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
+          className="w-full md:w-[50%] border px-4 md:px-6 py-3 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
+        />
+        <input
+          type="text"
+          name="secondName"
+          placeholder="Second Name"
+          value={formData.secondName}
+          onChange={handleChange}
+          autoComplete="off"
+          className="w-full md:w-[50%] border px-4 md:px-6 py-3 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
         />
       </div>
 
-      {/* Email */}
+      {/* Email Input */}
       <div className="w-[100%] lg:w-[85%] mx-auto">
         <input
           type="email"
           name="email"
-          placeholder="Your Email"
+          placeholder="Email"
+          autoComplete="off"
           value={formData.email}
           onChange={handleChange}
-          autoComplete="off"
           className="w-full border px-4 md:px-6 py-3 my-2 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
         />
       </div>
 
-      {/* Message */}
+      {/* Message Input */}
       <div className="w-[100%] lg:w-[85%] mx-auto">
         <textarea
           name="message"
@@ -109,15 +122,13 @@ const Form = () => {
         />
       </div>
 
-      {/* Status */}
+      {/* Status Message */}
       {status && <p className="text-center text-sm my-2 text-white">{status}</p>}
 
       {/* Submit Button */}
       <button
         type="submit"
-        className={`px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color text-sm rounded-full w-[6rem] text-white ${
-          loading && "opacity-50 cursor-not-allowed"
-        }`}
+        className={`px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color text-sm rounded-full w-[6rem] text-white ${loading && "opacity-50 cursor-not-allowed"}`}
         disabled={loading}
       >
         {loading ? (
