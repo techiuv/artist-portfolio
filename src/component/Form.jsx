@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { db } from '/backend/Config/firebaseConfig'; // Update the path if needed
+import { db } from '/backend/config/firebase'; 
 import { collection, addDoc } from 'firebase/firestore';
 
 const Form = () => {
