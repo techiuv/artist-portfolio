@@ -1,115 +1,98 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { db } from '/backend/Config/firebaseConfig'; // Update the path if needed
+import { collection, addDoc } from 'firebase/firestore';
 
 const Form = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    secondName: '',
-    email: '',
-    message: '',
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setSuccess('');
-    setLoading(true);
-
-    const { firstName, secondName, email, message } = formData;
-
-    if (!firstName || !secondName || !email || !message) {
-      setError('All fields are required');
-      setLoading(false);
-      return;
-    }
-
+  const onSubmit = async (data) => {
     try {
-      const response = await fetch('/api/form', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      // Save form data to Firebase Firestore
+      const docRef = await addDoc(collection(db, 'formSubmissions'), data);
+      console.log('Document written with ID: ', docRef.id);
 
-      const data = await response.json();
-      if (response.ok) {
-        setSuccess(data.message);
-        setFormData({ firstName: '', secondName: '', email: '', message: '' });
-      } else {
-        setError(data.error);
-      }
-    } catch (err) {
-      setError('Something went wrong. Please try again.');
-    } finally {
-      setLoading(false);
+      // Reset form fields
+      reset();
+      alert('Form submitted successfully!');
+    } catch (error) {
+      console.error('Error adding document: ', error);
+      alert('Failed to submit form. Please try again.');
     }
   };
 
   return (
-    <form className="w-[90%] md:w-3/4 mx-auto p-4 bg-secondary-color rounded-3xl py-2 lg:py-4 my-11" onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="w-[90%] md:w-3/4 mx-auto p-4 bg-secondary-color rounded-3xl py-2 lg:py-4 my-11"
+    >
+      <h3 className="text-white text-center mt-4 mb-1 text-2xl lg:text-4xl font-bold">
+        Get in Touch
+      </h3>
+      <p className="text-[#BDBDBD] text-center font-normal">You can reach me anytime</p>
 
-      <h3 className=' text-white text-center mt-4 mb-1 text-2xl lg:text-4xl font-bold'>Get in Touch</h3>
-      <p className='text-[#BDBDBD] text-center font-normal'>You can reach me anytime</p>
-      <div className='py-3 lg:py-2 flex flex-col md:flex-row gap-4 md:gap-3 justify-between items-center w-[100%] lg:w-[85%] mx-auto'>
+      {/* First and Second Name */}
+      <div className="py-3 lg:py-2 flex flex-col md:flex-row gap-4 md:gap-3 justify-between items-center w-[100%] lg:w-[85%] mx-auto">
         <input
           type="text"
-          name="firstName"
-          placeholder='First Name'
-          value={formData.firstName}
-          onChange={handleChange}
-          autoComplete='off'
-          className="w-full md:w-[50%] border px-4 md:px-6 py-3  lg:py-2 rounded-3xl  bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent active:bg-transparent"
+          placeholder="First Name"
+          {...register('firstName', { required: 'First Name is required' })}
+          className="w-full md:w-[50%] border px-4 md:px-6 py-3 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
         />
+        {errors.firstName && <p className="text-red-500">{errors.firstName.message}</p>}
+
         <input
           type="text"
-          name="secondName"
-          placeholder='Second Name'
-          autoComplete='off'
-          value={formData.secondName}
-          onChange={handleChange}
-          className="w-full md:w-[50%] border px-4 md:px-6 py-3  lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent active:bg-transparent"
+          placeholder="Second Name"
+          {...register('secondName', { required: 'Second Name is required' })}
+          className="w-full md:w-[50%] border px-4 md:px-6 py-3 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
         />
-
+        {errors.secondName && <p className="text-red-500">{errors.secondName.message}</p>}
       </div>
 
-      <div className='w-[100%] lg:w-[85%] mx-auto'>
+      {/* Email */}
+      <div className="w-[100%] lg:w-[85%] mx-auto">
         <input
           type="email"
-          name="email"
-          placeholder='Email'
-          autoComplete='off'
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full border px-4 md:px-6 py-3 my-2  lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent active:bg-transparent"
+          placeholder="Email"
+          {...register('email', {
+            required: 'Email is required',
+            pattern: {
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+              message: 'Enter a valid email address',
+            },
+          })}
+          className="w-full border px-4 md:px-6 py-3 my-2 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
         />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div className='w-[100%] lg:w-[85%] mx-auto'>
+
+      {/* Message */}
+      <div className="w-[100%] lg:w-[85%] mx-auto">
         <textarea
-          name="message"
-          placeholder='Your Message'
-          value={formData.message}
-          onChange={handleChange}
+          placeholder="Your Message"
+          {...register('message', { required: 'Message is required' })}
           rows={4}
-          className="w-full border px-4 md:px-6 py-3 my-2  lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent hover:bg-transparent valid:bg-transparent active:bg-transparent"
+          className="w-full border px-4 md:px-6 py-3 my-2 lg:py-2 rounded-3xl bg-transparent text-sm lg:text-xl border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent"
         />
+        {errors.message && <p className="text-red-500">{errors.message.message}</p>}
       </div>
-      {error && <p className="text-red-500 text-center" >{error}</p>}
-      {success && <p className="text-green-500  text-center">{success}</p>}
+
+      {/* Submit Button */}
       <button
         type="submit"
-        className={` px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color text-sm rounded-full w-[6rem] text-white ${loading && 'opacity-50 cursor-not-allowed'}`}
-        disabled={loading}
+        className={`px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color text-sm rounded-full w-[6rem] text-white ${
+          isSubmitting && 'opacity-50 cursor-not-allowed'
+        }`}
+        disabled={isSubmitting}
       >
-        {loading ? (
-          <div class="w-6 h-6 border-4 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
+        {isSubmitting ? (
+          <div className="w-6 h-6 border-4 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
         ) : (
           'Submit'
         )}
