@@ -1,14 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-// Firebase configuration using Vite's import.meta.env
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_API_KEY,
-    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_APP_ID,
+  apiKey: "AIzaSyDm0c095XyQW1nuWTg8BEamLb7YKqq9cgw",
+  authDomain: "portfolio-ca8b3.firebaseapp.com",
+  databaseURL: "https://portfolio-ca8b3-default-rtdb.firebaseio.com",
+  projectId: "portfolio-ca8b3",
+  storageBucket: "portfolio-ca8b3.firebasestorage.app",
+  messagingSenderId: "496626827350",
+  appId: "1:496626827350:web:22d47bb1509d0193ef7bf7"
 };
 
 // Initialize Firebase
