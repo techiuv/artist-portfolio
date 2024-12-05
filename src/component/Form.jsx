@@ -28,28 +28,36 @@ const Form = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("");
-    setLoading(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("");
+  setLoading(true);
 
-    const { name, email, message } = formData;
+  const { name, email, message } = formData;
 
-    if (!name || !email || !message) {
-      setStatus("All fields are required.");
-      setLoading(false);
-      return;
-    }
+  if (!name || !email || !message) {
+    setStatus("All fields are required.");
+    setLoading(false);
+    return;
+  }
 
+  try {
     const response = await submitFormData(formData);
+
     if (response.success) {
       setStatus("Form submitted successfully!");
       setFormData({ name: "", email: "", message: "" });
     } else {
       setStatus("Error submitting form. Please try again.");
     }
+  } catch (error) {
+    console.error("Error during form submission: ", error);
+    setStatus("An error occurred while submitting the form. Please try again.");
+  } finally {
     setLoading(false);
-  };
+  }
+};
+
 
   return (
     <form
