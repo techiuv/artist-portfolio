@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.VITE_MONGO_URI;
 
 let isConnected; 
 
