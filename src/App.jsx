@@ -41,6 +41,9 @@ function App() {
 
   })
 
+  const headingRef = useRef(null);
+
+
   useEffect(() => {
     const glowText = headingRef.current;
 
