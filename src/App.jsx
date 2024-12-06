@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -31,22 +31,43 @@ function App() {
       duration: 1,
       scrollTrigger: {
         start: 'top 90%',
+        end: "bottom 90%",
         scrub: 1,
         trigger: '#about',
       },
     });
 
-    gsap.from(".heading", {
-      textShadow: "0px 0px 30px #FF7B00",
-      duration: 1,
-      scrollTrigger: {
-        start: 'top 50%',
-        scrub: 1,
-        trigger: '#portfolio',
-      },
-    })
+    
 
   })
+
+  useEffect(() => {
+    const glowText = headingRef.current;
+
+    const observerOptions = {
+      root: null, // Observes the viewport
+      threshold: 0.5, // Trigger when 50% of the text is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Apply glowing text shadow effect
+          glowText.style.textShadow = "0px 0px 30px #FF7B00";
+        } else {
+          glowText.style.textShadow = "0px 0px 30px transparent";
+        }
+      });
+    }, observerOptions);
+
+    if (glowText) {
+      observer.observe(glowText);
+    }
+
+    return () => {
+      if (glowText) observer.unobserve(glowText);
+    };
+  }, []);
 
   const experience = new Date().getFullYear() - 2021 + ' years';
 
@@ -73,13 +94,13 @@ function App() {
         </section>
 
         <section id='about' className='w-[100%]'>
-          <p className='about-para text-center w-[95%] md:w-[70%] lg:w-[65%] mx-auto text-lg md:text-2xl lg:text-3xl text-[#BDBDBD] my-10 md:my-16 font-normal '>
+          <p className='about-para text-center w-[95%] md:w-[70%] lg:w-[65%] mx-auto text-lg md:text-2xl lg:text-3xl text-[#BDBDBD] my-10 md:my-16 font-normal ' >
             I am a professional artist based in Bihar with an expertise of {experience} experience specializing in a variety of mediums, including charcoal, oil, acrylic, watercolor, and pastels. My artistic journey, shaped by self-learning, enabled me to develop a unique and expressive style. Each piece I create is crafted with passion, focusing on storytelling and evoking emotions in my audience.
           </p>
         </section>
 
         <section id='portfolio' className='w-[100%]'>
-          <h3 className='text-center mx-auto text-[10vw] lg:text-[7rem] font-bold drop-shadow-md uppercase heading'>Featured Work</h3>
+          <h3 className='text-center mx-auto text-[10vw] lg:text-[7rem] font-bold drop-shadow-md uppercase heading' ref={headingRef} >Featured Work</h3>
 
           <div className='w-[90%] md:w-3/4 mx-auto'>
             <Cards
