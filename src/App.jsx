@@ -103,7 +103,7 @@ function App() {
         </section>
 
         <section id='portfolio' className='w-[100%]'>
-          <h3 className='text-center mx-auto text-[10vw] lg:text-[7rem] font-bold drop-shadow-md uppercase heading' ref={headingRef} >Featured Work</h3>
+          <h3 className='text-center mx-auto text-[10vw] lg:text-[7rem] font-bold drop-shadow-md uppercase heading transition-all duration-700' ref={headingRef} >Featured Work</h3>
 
           <div className='w-[90%] md:w-3/4 mx-auto'>
             <Cards
