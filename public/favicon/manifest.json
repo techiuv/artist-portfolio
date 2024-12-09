@@ -1,8 +1,8 @@
 {
   "name": "Artist Portfolio - Yuvraj",
   "short_name": "Yuvraj Portfolio",
-  "description": "Discover the portfolio of Yuvraj, an artist skilled in charcoal, oil, acrylic, watercolor, and pastels. Explore a collection that reflects creativity, technique, and a passion for visual storytelling.",
-  "start_url": "/index.html",
+  "description": "Explore the artistic journey of Yuvraj, a talented artist specializing in charcoal, oil, acrylic, watercolor, and pastels. Immerse yourself in a portfolio that blends creativity with exceptional technique.",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
@@ -19,5 +19,6 @@
     }
   ],
   "scope": "/",
-  "lang": "en"
+  "lang": "en",
+  "orientation": "portrait-primary"
 }
