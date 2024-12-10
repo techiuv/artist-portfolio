@@ -82,8 +82,8 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="loader w-full h-screen flex justify-center items-center bg-black">
-        <h1 className="text-white text-3xl font-bold">Loading...</h1>
+      <div className="loader w-full h-screen flex justify-center items-center bg-bg-dark">
+        <h1 className="text-white text-3xl font-medium">Artist Yuvraj</h1>
       </div>
     );
   }
