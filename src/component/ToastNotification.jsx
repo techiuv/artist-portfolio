@@ -9,10 +9,11 @@ const ToastNotification = ({ message, type = 'success', onClose }) => {
   useEffect(() => {
     gsap.fromTo(
       '.toast-bg',
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: 0.5 }
+      { opacity: 0, y: -20, scale: 0 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.out' }
     );
 
+    // Auto dismiss after 3 seconds
     const timer = setTimeout(() => {
       setIsVisible(false);
       setTimeout(() => onClose(), 500);
@@ -25,7 +26,7 @@ const ToastNotification = ({ message, type = 'success', onClose }) => {
 
   return (
     <div
-      className={`toast-bg z-[999] fixed top-5 right-5 p-2 rounded-lg shadow-lg ${bgColor} text-white flex items-center space-x-2`}
+      className={`toast-bg z-[999] fixed top-5 left-1/2 transform -translate-x-1/2 p-2 text-lg md:text-xl lg:text-2xl font-normal rounded-lg shadow-lg ${bgColor} text-white flex items-center space-x-2`}
     >
       <span>{message}</span>
     </div>
