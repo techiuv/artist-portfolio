@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import ToastNotification from './ToastNotification';
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,6 @@ const Form = () => {
       await addDoc(collection(db, "formSubmissions"), data);  // Submit data to Firestore
       return { success: true };
     } catch (error) {
-      console.error("Error submitting form data:", error);
       return { success: false };
     }
   };
@@ -35,8 +35,8 @@ const Form = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("");  // Reset status
-    setLoading(true);  // Set loading state
+    setStatus("");  
+    setLoading(true);  
 
     const { firstName, secondName, email, message } = formData;
 
@@ -48,20 +48,18 @@ const Form = () => {
     }
 
     try {
-      // Submit the form data
       const response = await submitFormData(formData);
 
       if (response.success) {
-        setStatus("Form submitted successfully!");  // Success message
+        setStatus("Form submitted successfully!");  
         setFormData({ firstName: "", secondName: "", email: "", message: "" });  // Clear form
       } else {
         setStatus("Error submitting form. Please try again.");
       }
     } catch (error) {
-      console.error("Error during form submission:", error);
-      setStatus("An error occurred while submitting the form. Please try again.");
+      setStatus("Something went wrong.");
     } finally {
-      setLoading(false);  // Set loading to false after submission
+      setLoading(false);   
     }
   };
 
@@ -122,17 +120,24 @@ const Form = () => {
         />
       </div>
 
-      {/* Status Message */}
-      {status && <p className="text-center text-sm my-2 text-white">{status}</p>}
+      {/* Show Toast Notification */}
+        {status && (
+          <ToastNotification
+            message={status}
+            type={status.includes('success') ? 'success' : 'error'}
+            onClose={() => setStatus('')}
+          />
+        )}
 
+      
       {/* Submit Button */}
       <button
         type="submit"
-        className={`px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color text-sm rounded-full w-[6rem] text-white ${loading && "opacity-50 cursor-not-allowed"}`}
+        className={`px-3 mx-auto flex justify-center items-center py-2 my-3 bg-accent-color text-sm rounded-full w-[6rem] text-white ${loading && " cursor-not-allowed"}`}
         disabled={loading}
       >
         {loading ? (
-          <div className="w-6 h-6 border-4 border-dotted border-t-transparent border-white rounded-full animate-spin"></div>
+          <div className="w-5 h-5 border-[3px] border-dotted border-t-transparent border-white rounded-full animate-spin"></div> 
         ) : (
           "Submit"
         )}
