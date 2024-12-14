@@ -26,7 +26,7 @@ const ToastNotification = ({ message, type = 'success', onClose }) => {
 
   return (
     <div
-      className={`toast-bg z-[999] fixed top-5 left-1/2 transform -translate-x-1/2 p-2 text-sm md:text-lg lg:text-xl font-normal rounded-lg shadow-lg ${bgColor} text-white flex items-center w-[60%] lg:w-[300px] space-x-2`}
+      className={`toast-bg text-center z-[999] fixed top-5 left-1/2 transform -translate-x-1/2 p-2 text-sm md:text-lg lg:text-xl font-normal rounded-lg shadow-lg ${bgColor} text-white flex items-center w-[60%] lg:w-[300px] space-x-2`}
     >
       <span>{message}</span>
     </div>
