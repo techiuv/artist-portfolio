@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import db from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import ToastNotification from './ToastNotification';
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -119,9 +120,16 @@ const Form = () => {
         />
       </div>
 
-      {/* Status Message */}
-      {status && <p className="text-center text-sm my-2 text-white">{status}</p>}
+      {/* Show Toast Notification */}
+        {status && (
+          <ToastNotification
+            message={status}
+            type={status.includes('success') ? 'success' : 'error'}
+            onClose={() => setStatus('')}
+          />
+        )}
 
+      
       {/* Submit Button */}
       <button
         type="submit"
@@ -129,7 +137,7 @@ const Form = () => {
         disabled={loading}
       >
         {loading ? (
-          <div className="w-6 h-6 border-4 border-dotted border-t-transparent border-white rounded-full animate-spin"></div> 
+         <div className="w-4 h-4 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
         ) : (
           "Submit"
         )}
