@@ -137,7 +137,7 @@ const Form = () => {
         disabled={loading}
       >
         {loading ? (
-         <div className="w-4 h-4 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+          <div className="w-4 h-4 border-4 border-dotted border-t-transparent border-white rounded-full animate-spin"></div> 
         ) : (
           "Submit"
         )}
