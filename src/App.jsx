@@ -16,7 +16,7 @@ function App() {
 
 
     
-    tl.from(".hero-txt", {
+    tl.from(".hero-txt, .text-stroke-1", {
        opacity: 0,
        duration: .5,
      });
