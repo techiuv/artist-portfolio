@@ -82,7 +82,7 @@ function App() {
 
       <main>
         <section id='home' className='w-[100%] mt-[5vh] md:mt-[10vh] h-auto lg:h-[100vh] relative flex justify-center items-center'>
-          <div className='mx-auto relative w-[100%] sm:w-[50%] bg-red-500 lg:w-auto h-[100%]'>
+          <div className='mx-auto relative w-[100%] sm:w-[70%] bg-red-500 lg:w-auto h-[100%]'>
             <img
               src="/img/Firefly 20240729100151 2.png"
               alt="Artist Yuvraj"
