@@ -91,8 +91,8 @@ function App() {
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
           <div className='absolute h-[100%] w-[95%] bg-red-50 mx-auto text-center flex justify-center lg:gap-20 items-center text-transparent top-0 left-1/2 -translate-x-1/2 -z-10'>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[10vw] md:text-[11vww] lg:text-[11.5vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Artist</h3>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[10vw] md:text-[11vww] lg:text-[11.5vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Yuvraj</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Artist</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Yuvraj</h3>
           </div>
         </section>
 
