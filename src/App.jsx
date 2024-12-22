@@ -86,13 +86,13 @@ function App() {
             <img
               src="/img/Firefly 20240729100151 2.png"
               alt="Artist Yuvraj"
-              className='hero-img h-auto md:h-[100%] mx-auto aspect-[3/4] md:aspect-auto  object-cover'
+              className='hero-img h-auto md:h-[100%] mx-auto aspect-[3/4] w-auto sm:w-50% lg:w-auto md:aspect-auto  object-cover'
             />
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
           <div className='absolute h-[100%] w-[95%] lg:w-full bg-red-50 mx-auto text-center flex justify-center lg:gap-20 items-center text-transparent top-0 left-1/2 -translate-x-1/2 -z-10'>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28  hero-txt'>Artist</h3>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28  hero-txt'>Yuvraj</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Artist</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Yuvraj</h3>
           </div>
         </section>
 
