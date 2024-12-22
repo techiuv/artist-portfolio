@@ -82,11 +82,11 @@ function App() {
 
       <main>
         <section id='home' className='w-[100%] mt-[5vh] md:mt-[10vh] h-auto lg:h-[100vh] relative flex justify-center items-center'>
-          <div className='mx-auto relative w-[100%] lg:w-auto h-[100%]'>
+          <div className='mx-auto relative w-[100%] sm:w-[50%] bg-red-500 lg:w-auto h-[100%]'>
             <img
               src="/img/Firefly 20240729100151 2.png"
               alt="Artist Yuvraj"
-              className='hero-img h-auto md:h-[100%] mx-auto bg-red-50 aspect-[3/4] w-auto sm:w-50% lg:w-auto sm:aspect-auto  object-cover'
+              className='hero-img h-auto md:h-[100%] mx-auto  aspect-[3/4]    md:aspect-auto  object-cover'
             />
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
