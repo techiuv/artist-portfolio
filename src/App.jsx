@@ -82,17 +82,17 @@ function App() {
 
       <main>
         <section id='home' className='w-[100%] mt-[5vh] md:mt-[10vh] h-auto lg:h-[100vh] relative flex justify-center items-center'>
-          <div className='mx-auto relative w-[100%] lg:w-auto h-[100%]'>
+          <div className='mx-auto relative w-[100%] sm:w-[70%] lg:w-auto h-[100%]'>
             <img
               src="/img/Firefly 20240729100151 2.png"
               alt="Artist Yuvraj"
-              className='hero-img h-auto md:h-[100%] mx-auto aspect-[3/4] md:aspect-auto  object-cover'
+              className='hero-img h-auto md:h-[100%] mx-auto  aspect-[3/4]    md:aspect-auto  object-cover'
             />
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>
-          <div className='absolute h-[100%] w-[95%] lg:w-full bg-red-50 mx-auto text-center flex justify-center lg:gap-20 items-center text-transparent top-0 left-1/2 -translate-x-1/2 -z-10'>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28  hero-txt'>Artist</h3>
-            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28  hero-txt'>Yuvraj</h3>
+          <div className='absolute h-[100%] w-[95%] lg:w-full  mx-auto text-center flex justify-center lg:gap-20 items-center text-transparent top-0 left-1/2 -translate-x-1/2 -z-10'>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Artist</h3>
+            <h3 className='text-stroke-1 opacity-50 uppercase font-extrabold md:font-bold text-[11.5vw] md:text-[12vww] lg:text-[11vw] text-gradient-stroke mb-28 tracking-widest hero-txt'>Yuvraj</h3>
           </div>
         </section>
 
