@@ -2,3 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "portfoio-font";
+  src: url("/fonts/Jacksilver.ttf");
+}
+
+@font-face {
+  font-family: "heading-font";
+  src: url("/fonts/SFPRODISPLAYMEDIUM.TTF");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.logo {
+  font-family: "portfoio-font", sans-serif;
+}
+
+h3 {
+  font-family: "heading-font", sans-serif;
+}
+
+.text-stroke-1 {
+  -webkit-text-stroke: 1px #bdbdbd;
+  text-stroke: 1px #bdbdbd; 
+}
+
+
+/* For webkit-based browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: #1F1F1F82; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2C2B2B;
+  border-radius: 2px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6F6969; /* Hover effect */
+}
+
+/* Optional: Customize the scrollbar corner for resizable elements */
+::-webkit-scrollbar-corner {
+  background: transparent; /* Corner styling */
+}
+
+/* For Firefox */
+
+
+
+
