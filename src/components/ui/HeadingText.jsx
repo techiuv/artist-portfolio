@@ -15,9 +15,9 @@ const HeadingText = ({ heading }) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Apply glowing text shadow effect
-          glowText.style.textShadow = "0px 0px 50px #FF7B00";
+          glowText.style.textShadow = "0px 0px 35px #FF7B00";
         } else {
-          glowText.style.textShadow = "0px 0px 30px transparent";
+          glowText.style.textShadow = "0px 0px 35px transparent";
         }
       });
     }, observerOptions);

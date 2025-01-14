@@ -109,6 +109,9 @@ const Form = () => {
           <p className="text-red-500 text-sm">{errors.message.message}</p>
         )}
       </div>
+      
+            {success && <p className="text-green-500 text-sm text-center">{success}</p>}
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
 
       {/* Submit Button */}
       <button
@@ -124,9 +127,6 @@ const Form = () => {
           "Submit"
         )}
       </button>
-
-      {success && <p className="text-green-500 text-sm">{success}</p>}
-      {error && <p className="text-red-500 text-sm">{error}</p>}
     </form>
   );
 };
