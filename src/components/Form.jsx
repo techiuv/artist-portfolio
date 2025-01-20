@@ -51,11 +51,11 @@ const Form = () => {
             placeholder="First Name"
             {...register("firstName", { required: "First Name is required" })}
             className={`w-full  border px-4 md:px-6 py-3 lg:py-3 rounded-3xl bg-transparent text-sm lg:text-[1rem] border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent ${
-              errors.firstName ? "border-red-500" : ""
+              errors.firstName ? "border-red-600" : ""
             }`}
           />
           {errors.firstName && (
-            <p className="text-red-500 text-sm">{errors.firstName.message}</p>
+            <p className="text-red-600 text-sm ml-2 pt-1">{errors.firstName.message}</p>
           )}
         </div>
 
@@ -65,11 +65,11 @@ const Form = () => {
             placeholder="Second Name"
             {...register("secondName", { required: "Second Name is required" })}
             className={`w-full  border px-4 md:px-6 py-3 lg:py-3 rounded-3xl bg-transparent text-sm lg:text-[1rem] border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent ${
-              errors.secondName ? "border-red-500" : ""
+              errors.secondName ? "border-red-600" : ""
             }`}
           />
           {errors.secondName && (
-            <p className="text-red-500 text-sm">{errors.secondName.message}</p>
+            <p className="text-red-600 text-sm ml-2 pt-1">{errors.secondName.message}</p>
           )}
         </div>
       </div>
@@ -87,11 +87,11 @@ const Form = () => {
             },
           })}
           className={`w-full border px-4 md:px-6 py-3 my-2 lg:py-3 rounded-3xl bg-transparent text-sm lg:text-[1rem] border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent ${
-            errors.email ? "border-red-500" : ""
+            errors.email ? "border-red-600" : ""
           }`}
         />
         {errors.email && (
-          <p className="text-red-500 text-sm">{errors.email.message}</p>
+          <p className="text-red-600 text-sm ml-2">{errors.email.message}</p>
         )}
       </div>
 
@@ -102,16 +102,16 @@ const Form = () => {
           {...register("message", { required: "Message is required" })}
           rows={4}
           className={`w-full border px-4 md:px-6 py-3 my-2  rounded-3xl bg-transparent text-sm lg:text-[1rem] resize-none border-primary-color placeholder:text-[#6F6969] text-white outline-none focus:bg-transparent ${
-            errors.message ? "border-red-500" : ""
+            errors.message ? "border-red-600" : ""
           }`}
         />
         {errors.message && (
-          <p className="text-red-500 text-sm">{errors.message.message}</p>
+          <p className="text-red-600 text-sm ml-2">{errors.message.message}</p>
         )}
       </div>
       
             {success && <p className="text-green-500 text-sm text-center">{success}</p>}
-            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+            {error && <p className="text-red-600 text-sm text-center">{error}</p>}
 
       {/* Submit Button */}
       <button

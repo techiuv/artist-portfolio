@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "heading-font";
-  src: url("/fonts/SFPRODISPLAYREGULAR.OTF");
+  src: url("/fonts/SFPRODISPLAYMEDIUM.OTF");
 }
 
 html {
@@ -24,9 +24,9 @@ h3 {
   font-family: "heading-font", sans-serif;
 }
 
-.text-stroke-1 {
+.text-stroke{
   -webkit-text-stroke: 1px #bdbdbd;
-  text-stroke: 1px #bdbdbd; 
+  /* text-stroke: 1px #bdbdbd;  */
 }
 
 

@@ -54,7 +54,7 @@ const Navbar = () => {
     <nav
       className={`${
         scrollY > 50
-          ? "fixed lg:relative top-0 left-0 right-0 bg-[#6A000000] backdrop-blur-md z-50"
+          ? "fixed lg:relative top-0 left-0 right-0 bg-[#6A000000] backdrop-blur-sm z-50"
           : ""
       } flex justify-between items-center lg:relative fixed top-0 left-0 right-0 w-full min-h-[5vh] px-3 md:px-7 transition-all py-2 duration-300 z-50`}
     >
@@ -71,8 +71,8 @@ const Navbar = () => {
           {isOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
+              width="20"
+              height="20"
               fill="#ffffff"
               viewBox="0 0 16 16"
             >

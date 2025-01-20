@@ -1,6 +1,3 @@
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../components/Navbar";
 import Cards from "../components/Cards";
 import Form from "../components/Form";
@@ -10,33 +7,7 @@ import Title from "../components/shared/Title";
 import ProgressBar from "../components/shared/ProgressBar";
 import HeroHeading from "../components/ui/HeroHeading";
 
-gsap.registerPlugin(ScrollTrigger);
-const tl = gsap.timeline();
-
 const Home = () => {
-  useGSAP(() => {
-    // tl.from(".hero-txt, .text-stroke-1", {
-    //   opacity: 0,
-    //   duration: 0.5,
-    // });
-
-    // tl.from(".hero-img", {
-    //   opacity: 0,
-    //   duration: 0.5,
-    // });
-
-    gsap.from(".about-para", {
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        start: "top 90%",
-        end: "bottom 90%",
-        scrub: 1,
-        trigger: "#about",
-      },
-    });
-  });
-
   return (
     <>
       <ProgressBar />
@@ -55,6 +26,7 @@ const Home = () => {
               src="/img/Firefly 20240729100151 2.png"
               alt="Artist Yuvraj"
               className="hero-img h-full md:h-[100%] mx-auto  aspect-[3/4]    md:aspect-auto  object-cover"
+              loading="lazy"
             />
             <div className="bg-gradient-to-b from-transparent to-[#070707] h-32 w-full absolute bottom-0 left-0"></div>
           </div>

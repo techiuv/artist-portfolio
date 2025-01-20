@@ -1,11 +1,16 @@
 const Cards = ({ path, tittle, year, description, medium }) => {
   return (
-    <div className="w-[100%] flex items-center flex-col md:flex-row justify-center gap-4 rounded-3xl bg-secondary-color backdrop-blur-2xl p-3 md:p-6 mt-5 md:mt-10">
+    <figure className="w-[100%] flex items-center flex-col md:flex-row justify-center gap-4 rounded-3xl bg-secondary-color backdrop-blur-2xl p-3 md:p-6 mt-5 md:mt-10">
       <div className="w-[100%] md:w-[40%] rounded-xl md:rounded-3xl object-cover ">
-        <img src={path} alt={tittle} className="rounded-xl w-full h-auto" />
+        <img
+          src={path}
+          alt={tittle}
+          loading="lazy"
+          className="rounded-xl w-full h-auto"
+        />
       </div>
 
-      <div className="w-[100%] md:w-[60%] flex flex-col-reverse lg:flex-col justify-start h-[100%] p-2 ">
+      <figcaption className="w-[100%] md:w-[60%] flex flex-col-reverse lg:flex-col justify-start h-[100%] p-2 ">
         <div className="w-[100%] text-sm md:text-lg text-white font-light flex items-center justify-start my-2 gap-2 md:gap-4">
           <p className="rounded-2xl  md:rounded-3xl bg-[#383838] px-3 py-1 text-center font-normal text-sm">
             {medium}
@@ -21,8 +26,8 @@ const Cards = ({ path, tittle, year, description, medium }) => {
             {description}
           </p>
         </div>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   );
 };
 
