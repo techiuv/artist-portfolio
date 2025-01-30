@@ -21,14 +21,13 @@ html {
 }
 
 h3 {
-  /* font-family: "heading-font", sans-serif; */
+  font-family: "Poppins", serif;
 }
 
-.text-stroke{
+.text-stroke {
   -webkit-text-stroke: 1px #bdbdbd;
   /* text-stroke: 1px #bdbdbd;  */
 }
-
 
 /* For webkit-based browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
@@ -37,23 +36,19 @@ h3 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1F1F1F82; /* Background of the scrollbar track */
+  background: #1f1f1f82; /* Background of the scrollbar track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2C2B2B;
+  background: #2c2b2b;
   border-radius: 2px;
-
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6F6969; /* Hover effect */
+  background: #6f6969; /* Hover effect */
 }
 
 /* Optional: Customize the scrollbar corner for resizable elements */
 ::-webkit-scrollbar-corner {
   background: transparent; /* Corner styling */
 }
-
-
-
