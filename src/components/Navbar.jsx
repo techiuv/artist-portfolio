@@ -54,13 +54,13 @@ const Navbar = () => {
     <nav
       className={`${
         scrollY > 50
-          ? "fixed lg:relative top-0 left-0 right-0 bg-[#6A000000] backdrop-blur-sm z-50"
+          ? "fixed lg:relative top-0 left-0 right-0 bg-[#07070796] backdrop-blur-sm z-50"
           : ""
       } flex justify-between items-center lg:relative fixed top-0 left-0 right-0 w-full min-h-[5vh] px-3 md:px-7 transition-all py-2 duration-300 z-50`}
     >
       {/* Logo */}
       <div>
-        <a href="/" className="cursor-pointer logo font-normal text-xl ">
+        <a href="/" className="cursor-pointer logo font-normal text-xl md:text-2xl">
           Artfolio
         </a>
       </div>
@@ -150,7 +150,7 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-0 bg-black opacity-50 h-screen w-screen z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black opacity-50 h-screen w-screen z-40 transition-opacity duration-500 ${
           isOpen ? "block" : "hidden"
         }`}
         onClick={toggleDrawer}

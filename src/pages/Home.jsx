@@ -19,7 +19,7 @@ const Home = () => {
       <main>
         <section
           id="home"
-          className="w-[100%]   h-auto lg:h-[120vh] relative flex justify-center items-center"
+          className="w-[100%] mt-[8vh] md:mt-0  h-auto lg:h-[120vh] relative flex justify-center items-center"
         >
           <div className="mx-auto relative h-full ">
             <img

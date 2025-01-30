@@ -21,7 +21,7 @@ html {
 }
 
 h3 {
-  font-family: "heading-font", sans-serif;
+  /* font-family: "heading-font", sans-serif; */
 }
 
 .text-stroke{
@@ -54,9 +54,6 @@ h3 {
 ::-webkit-scrollbar-corner {
   background: transparent; /* Corner styling */
 }
-
-/* For Firefox */
-
 
 
 
